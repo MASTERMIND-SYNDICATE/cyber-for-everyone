@@ -268,11 +268,7 @@
       </div>
 
       <div class="contact-grid fade-in">
-        <form class="contact-form" action="https://formsubmit.co/cyberforeveryone@pm.me" method="POST" novalidate>
-          <input type="hidden" name="_subject" value="New message from Cyber for Everyone website">
-          <input type="hidden" name="_captcha" value="true">
-          <input type="hidden" name="_next" value="https://nonprofit.mastermindsyndicate.tech#contact">
-          <input type="hidden" name="_template" value="table">
+        <form class="contact-form" id="contact-form" novalidate>
           <div class="form-group">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name">
@@ -424,6 +420,30 @@
       window.addEventListener('scroll', () => {
         header.classList.toggle('header--scrolled', window.scrollY > 20);
       }, { passive: true });
+    })();
+
+    // Contact form → mailto
+    (function () {
+      const form = document.getElementById('contact-form');
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const name = form.querySelector('#name').value.trim();
+        const email = form.querySelector('#email').value.trim();
+        const intent = form.querySelector('#intent');
+        const intentText = intent.options[intent.selectedIndex].text;
+        const message = form.querySelector('#message').value.trim();
+
+        if (!name || !email || !message) {
+          alert('Please fill out all required fields.');
+          return;
+        }
+
+        const subject = encodeURIComponent('[Cyber for Everyone] ' + (intentText !== 'Select an option' ? intentText : 'Contact') + ' — ' + name);
+        const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nIntent: ' + intentText + '\n\n' + message);
+
+        window.location.href = 'mailto:cyberforeveryone@pm.me?subject=' + subject + '&body=' + body;
+      });
     })();
   </script>
 
