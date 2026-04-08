@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cyber for Everyone — Free Cybersecurity Education</title>
+  <meta name="description" content="Cyber for Everyone is a nonprofit bringing free, accessible cybersecurity education to every community. Learn to protect yourself online.">
+  <meta property="og:title" content="Cyber for Everyone">
+  <meta property="og:description" content="Free cybersecurity education for every community. No experience required.">
+  <meta property="og:type" content="website">
+
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600&f[]=satoshi@400,500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./base.css">
+  <link rel="stylesheet" href="./style.css">
+
+  <script>
+    (function(){
+      var d = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', d);
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#" class="header__logo" aria-label="Cyber for Everyone — Home">
+        <!-- Shield + Grid SVG Logo -->
+        <svg class="header__logo-mark" viewBox="0 0 32 36" fill="none" aria-hidden="true">
+          <path d="M16 2L29 7.5V19C29 25.5 23.5 31 16 34C8.5 31 3 25.5 3 19V7.5L16 2Z" stroke="currentColor" stroke-width="1.2"/>
+          <line x1="10" y1="13" x2="22" y2="13" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+          <line x1="10" y1="18" x2="22" y2="18" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+          <line x1="10" y1="23" x2="22" y2="23" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+          <line x1="13" y1="10" x2="13" y2="26" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+          <line x1="19" y1="10" x2="19" y2="26" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+          <circle cx="16" cy="18" r="2.5" stroke="currentColor" stroke-width="1" fill="none"/>
+          <circle cx="16" cy="18" r="0.8" fill="currentColor"/>
+        </svg>
+        <span class="header__logo-text">Cyber for<br>Everyone</span>
+      </a>
+
+      <nav class="header__nav" id="main-nav" aria-label="Main navigation">
+        <a href="#mission">Mission</a>
+        <a href="#curriculum">Curriculum</a>
+        <a href="#get-involved">Get Involved</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+        </button>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 12h18M3 6h18M3 18h18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container hero__content">
+      <p class="hero__label">// nonprofit · cybersecurity education</p>
+      <h1 class="hero__title" id="hero-title">Knowledge is<br>the best defense.</h1>
+      <p class="hero__desc">Cyber for Everyone is a nonprofit making cybersecurity education free, clear, and accessible — no technical background required.</p>
+      <div class="hero__actions">
+        <a href="#curriculum" class="btn btn--primary">Explore the Curriculum</a>
+        <a href="#get-involved" class="btn btn--ghost">Get Involved</a>
+      </div>
+    </div>
+    <div class="hero__deco" aria-hidden="true">
+      <div class="hero__deco-line"></div>
+      <div class="hero__deco-line hero__deco-line--2"></div>
+      <div class="hero__deco-shield">
+        <svg viewBox="0 0 120 140" fill="none">
+          <path d="M60 4L114 26V68C114 98 91 122 60 136C29 122 6 98 6 68V26L60 4Z" stroke="currentColor" stroke-width="1"/>
+          <path d="M60 18L101 36V68C101 91 83 111 60 122C37 111 19 91 19 68V36L60 18Z" stroke="currentColor" stroke-width="0.5" opacity="0.4"/>
+          <line x1="30" y1="55" x2="90" y2="55" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
+          <line x1="30" y1="70" x2="90" y2="70" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
+          <line x1="30" y1="85" x2="90" y2="85" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
+          <line x1="45" y1="35" x2="45" y2="110" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
+          <line x1="60" y1="20" x2="60" y2="125" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
+          <line x1="75" y1="35" x2="75" y2="110" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
+          <circle cx="60" cy="70" r="8" stroke="currentColor" stroke-width="0.8" fill="none"/>
+          <circle cx="60" cy="70" r="2.5" fill="currentColor" opacity="0.6"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS STRIP -->
+  <div class="container" id="mission">
+    <hr class="divider">
+    <div class="stats-row fade-in" role="list" aria-label="Key numbers">
+      <div class="stat" role="listitem">
+        <div class="stat__value">100%</div>
+        <div class="stat__label">Free, Always</div>
+      </div>
+      <div class="stat" role="listitem">
+        <div class="stat__value">6</div>
+        <div class="stat__label">Core Topics</div>
+      </div>
+      <div class="stat" role="listitem">
+        <div class="stat__value">1 in 3</div>
+        <div class="stat__label">Americans Fall for Phishing</div>
+      </div>
+      <div class="stat" role="listitem">
+        <div class="stat__value">$0</div>
+        <div class="stat__label">Cost to Protect Yourself</div>
+      </div>
+    </div>
+    <hr class="divider">
+  </div>
+
+  <!-- MISSION -->
+  <section class="mission-section" aria-labelledby="mission-title">
+    <div class="container">
+      <div class="split fade-in">
+        <div>
+          <div class="threat-panel" aria-label="Common threats visualization">
+            <div class="threat-panel__bar">
+              <span class="threat-panel__dot"></span>
+              <span class="threat-panel__dot"></span>
+              <span class="threat-panel__dot"></span>
+              <span class="threat-panel__label">common-threats.txt</span>
+            </div>
+            <div class="threat-panel__body">
+              <div class="threat-line threat-line--high"><span class="threat-tag">[HIGH]</span> Phishing emails targeting personal data</div>
+              <div class="threat-line threat-line--high"><span class="threat-tag">[HIGH]</span> Weak or reused passwords</div>
+              <div class="threat-line threat-line--med"><span class="threat-tag">[MED]</span> Social engineering over the phone</div>
+              <div class="threat-line threat-line--med"><span class="threat-tag">[MED]</span> Unpatched devices and outdated software</div>
+              <div class="threat-line threat-line--med"><span class="threat-tag">[MED]</span> Unsecured public Wi-Fi networks</div>
+              <div class="threat-line threat-line--low"><span class="threat-tag">[LOW]</span> Oversharing on social media</div>
+              <div class="threat-line threat-line--low"><span class="threat-tag">[LOW]</span> Clicking unverified links or attachments</div>
+              <div class="threat-line">&nbsp;</div>
+              <div class="threat-line threat-status"><span class="threat-tag threat-tag--ok">[INFO]</span> All of these are preventable with the right knowledge.</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="section-label">Mission</p>
+          <h2 class="section-title" id="mission-title">The cyber threat<br>is real. The solution<br>is education.</h2>
+          <p class="section-desc">Most cyberattacks succeed not because of sophisticated technology — but because people weren't given the tools to recognize them. Cyber for Everyone exists to change that.</p>
+          <div class="mission-list">
+            <div class="mission-item">Free training materials for individuals and communities</div>
+            <div class="mission-item">Plain-language guides — no jargon, no prerequisites</div>
+            <div class="mission-item">Workshops, resources, and partnerships at scale</div>
+            <div class="mission-item">Built by security professionals, for everyone else</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURRICULUM -->
+  <section id="curriculum" aria-labelledby="curriculum-title">
+    <div class="container">
+      <hr class="divider" style="margin-bottom: clamp(var(--space-12), 6vw, var(--space-24));">
+      <div class="section-header fade-in">
+        <p class="section-label">Curriculum</p>
+        <h2 class="section-title" id="curriculum-title">What we teach</h2>
+        <p class="section-subdesc">Six foundational topics every person should know — free, always.</p>
+      </div>
+
+      <div class="curriculum-grid fade-in" role="list">
+        <div class="curriculum-cell" role="listitem">
+          <div class="curriculum-cell__num">01</div>
+          <h3 class="curriculum-cell__title">Phishing Awareness</h3>
+          <p class="curriculum-cell__desc">How to spot deceptive emails, texts, and websites trying to steal your credentials or personal data.</p>
+        </div>
+        <div class="curriculum-cell" role="listitem">
+          <div class="curriculum-cell__num">02</div>
+          <h3 class="curriculum-cell__title">Passwords & MFA</h3>
+          <p class="curriculum-cell__desc">Building strong, unique passwords and enabling multi-factor authentication across your accounts.</p>
+        </div>
+        <div class="curriculum-cell" role="listitem">
+          <div class="curriculum-cell__num">03</div>
+          <h3 class="curriculum-cell__title">Online Scams</h3>
+          <p class="curriculum-cell__desc">Recognizing common fraud schemes — from romance scams to fake tech support calls and IRS impersonators.</p>
+        </div>
+        <div class="curriculum-cell" role="listitem">
+          <div class="curriculum-cell__num">04</div>
+          <h3 class="curriculum-cell__title">Device Safety</h3>
+          <p class="curriculum-cell__desc">Keeping your phone, computer, and home network secure through updates, settings, and safe habits.</p>
+        </div>
+        <div class="curriculum-cell" role="listitem">
+          <div class="curriculum-cell__num">05</div>
+          <h3 class="curriculum-cell__title">Privacy Basics</h3>
+          <p class="curriculum-cell__desc">Understanding what data apps and websites collect — and how to limit exposure without giving up functionality.</p>
+        </div>
+        <div class="curriculum-cell" role="listitem">
+          <div class="curriculum-cell__num">06</div>
+          <h3 class="curriculum-cell__title">Social Engineering</h3>
+          <p class="curriculum-cell__desc">How attackers manipulate people through urgency, authority, and trust — and how to stop them cold.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GET INVOLVED -->
+  <section id="get-involved" aria-labelledby="get-involved-title">
+    <div class="container">
+      <hr class="divider" style="margin-bottom: clamp(var(--space-12), 6vw, var(--space-24));">
+      <div class="section-header fade-in">
+        <p class="section-label">Get Involved</p>
+        <h2 class="section-title" id="get-involved-title">How you can help</h2>
+      </div>
+
+      <div class="involve-grid fade-in">
+        <div class="involve-card">
+          <div class="involve-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M12 2a9 9 0 1 1 0 18A9 9 0 0 1 12 2z"/>
+              <path d="M12 7v5l3 3"/>
+            </svg>
+          </div>
+          <h3 class="involve-card__title">Learn</h3>
+          <p class="involve-card__desc">Access our free curriculum — no signup required. Work through the modules at your own pace and share them with people you care about.</p>
+          <a href="#curriculum" class="involve-card__link">Browse the curriculum →</a>
+        </div>
+        <div class="involve-card">
+          <div class="involve-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3 class="involve-card__title">Volunteer</h3>
+          <p class="involve-card__desc">Help teach workshops, develop training content, or support outreach to schools, libraries, and community organizations.</p>
+          <a href="#contact" class="involve-card__link">Apply to volunteer →</a>
+        </div>
+        <div class="involve-card">
+          <div class="involve-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <rect x="2" y="7" width="20" height="14" rx="2"/>
+              <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+              <line x1="12" y1="12" x2="12" y2="16"/>
+              <line x1="10" y1="14" x2="14" y2="14"/>
+            </svg>
+          </div>
+          <h3 class="involve-card__title">Partner</h3>
+          <p class="involve-card__desc">Schools, nonprofits, and organizations: bring Cyber for Everyone's training to your community. We work with you at no cost.</p>
+          <a href="#contact" class="involve-card__link">Request a partnership →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <hr class="divider" style="margin-bottom: clamp(var(--space-12), 6vw, var(--space-24));">
+      <div class="section-header fade-in">
+        <p class="section-label">Contact</p>
+        <h2 class="section-title" id="contact-title">Get in touch</h2>
+      </div>
+
+      <div class="contact-grid fade-in">
+        <form class="contact-form" name="contact" method="POST" data-netlify="true" novalidate>
+          <input type="hidden" name="form-name" value="contact">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label for="intent">I want to</label>
+            <select id="intent" name="intent">
+              <option value="">Select an option</option>
+              <option value="volunteer">Volunteer</option>
+              <option value="partner">Partner with Cyber for Everyone</option>
+              <option value="workshop">Request a workshop</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us more..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary">Send Message</button>
+        </form>
+
+        <div class="contact-info">
+          <div class="contact-info__item">
+            <div class="contact-info__label">Email</div>
+            <div class="contact-info__value">
+              <a href="mailto:cyberforeveryone@pm.me">cyberforeveryone@pm.me</a>
+            </div>
+          </div>
+          <div class="contact-info__item">
+            <div class="contact-info__label">Organization Type</div>
+            <div class="contact-info__value">Nonprofit</div>
+          </div>
+          <div class="contact-info__item">
+            <div class="contact-info__label">Training</div>
+            <div class="contact-info__value">Free for all communities</div>
+          </div>
+          <div class="contact-info__item">
+            <div class="contact-info__label">Status</div>
+            <div class="contact-info__value status-badge">
+              <span class="status-dot" aria-hidden="true"></span>
+              Accepting volunteers &amp; partners
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__left">
+        <a href="#" class="footer__logo" aria-label="Cyber for Everyone — Home">
+          <svg class="footer__logo-mark" viewBox="0 0 32 36" fill="none" aria-hidden="true">
+            <path d="M16 2L29 7.5V19C29 25.5 23.5 31 16 34C8.5 31 3 25.5 3 19V7.5L16 2Z" stroke="currentColor" stroke-width="1.2"/>
+            <circle cx="16" cy="18" r="2.5" stroke="currentColor" stroke-width="1" fill="none"/>
+            <circle cx="16" cy="18" r="0.8" fill="currentColor"/>
+          </svg>
+          <span class="footer__logo-text">Cyber for Everyone</span>
+        </a>
+        <p class="footer__tagline">Free cybersecurity education for every community.</p>
+      </div>
+      <div class="footer__right">
+        <div class="footer__copy">&copy; <span id="year"></span> Cyber for Everyone. All rights reserved.</div>
+        <div class="footer__links">
+          <a href="mailto:cyberforeveryone@pm.me">Contact</a>
+          <a href="#curriculum">Curriculum</a>
+          <a href="#get-involved">Volunteer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme toggle
+    (function () {
+      const t = document.querySelector('[data-theme-toggle]');
+      const r = document.documentElement;
+      let d = r.getAttribute('data-theme') || 'dark';
+
+      function setIcon() {
+        if (!t) return;
+        t.innerHTML = d === 'dark'
+          ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+          : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+        t.setAttribute('aria-label', 'Switch to ' + (d === 'dark' ? 'light' : 'dark') + ' mode');
+      }
+
+      setIcon();
+      t && t.addEventListener('click', () => {
+        d = d === 'dark' ? 'light' : 'dark';
+        r.setAttribute('data-theme', d);
+        setIcon();
+      });
+    })();
+
+    // Mobile nav
+    (function () {
+      const btn = document.getElementById('mobile-toggle');
+      const nav = document.getElementById('main-nav');
+      btn && btn.addEventListener('click', () => {
+        const open = nav.classList.toggle('active');
+        btn.setAttribute('aria-expanded', open);
+      });
+      nav && nav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          nav.classList.remove('active');
+          btn && btn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+
+    // Scroll fade-in
+    (function () {
+      const els = document.querySelectorAll('.fade-in');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(el => el.classList.add('visible'));
+        return;
+      }
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(el => obs.observe(el));
+    })();
+
+    // Threat panel line reveal
+    (function () {
+      const lines = document.querySelectorAll('.threat-line');
+      lines.forEach((line, i) => {
+        line.style.opacity = '0';
+        line.style.transform = 'translateX(-6px)';
+        setTimeout(() => {
+          line.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+          line.style.opacity = '1';
+          line.style.transform = 'translateX(0)';
+        }, 400 + i * 120);
+      });
+    })();
+
+    // Header scroll state
+    (function () {
+      const header = document.getElementById('header');
+      window.addEventListener('scroll', () => {
+        header.classList.toggle('header--scrolled', window.scrollY > 20);
+      }, { passive: true });
+    })();
+  </script>
+
+</body>
+</html>
