@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Module 06: Social Engineering — Cyber for Everyone</title>
+  <meta name="description" content="How attackers manipulate people through urgency, authority, and trust — and how to recognize it before it's too late.">
+
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600&f[]=satoshi@400,500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../style.css">
+
+  <script>
+    (function(){
+      var d = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', d);
+    })();
+  </script>
+
+  <style>
+    .module-hero { padding-top: clamp(var(--space-16), 10vw, var(--space-24)); padding-bottom: clamp(var(--space-8), 4vw, var(--space-12)); }
+    .module-hero__num { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-tertiary); letter-spacing: 0.08em; margin-bottom: var(--space-4); }
+    .module-hero__title { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 600; color: var(--text-primary); letter-spacing: -0.02em; margin-bottom: var(--space-4); }
+    .module-hero__desc { font-size: var(--text-base); color: var(--text-secondary); max-width: 560px; line-height: 1.7; }
+    .module-content { padding-bottom: clamp(var(--space-16), 7vw, var(--space-24)); }
+    .module-content h2 { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-4); letter-spacing: -0.015em; }
+    .module-content h3 { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 500; color: var(--text-primary); margin-bottom: var(--space-3); margin-top: var(--space-8); }
+    .module-content p { font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-4); max-width: 680px; }
+    .module-content ul, .module-content ol { padding-left: var(--space-6); margin-bottom: var(--space-4); }
+    .module-content li { font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-2); }
+    .module-content li::marker { color: var(--accent); }
+    .tip-box { border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: var(--space-6); background: var(--bg-card); margin-block: var(--space-6); }
+    .tip-box__label { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--accent); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: var(--space-3); }
+    .tip-box__content { font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.7; }
+    .action-checklist { border: 1px solid var(--accent); border-radius: var(--radius-lg); padding: var(--space-8); background: var(--accent-dim); margin-block: var(--space-8); }
+    .action-checklist__title { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-4); }
+    .action-checklist li { font-size: var(--text-sm); color: var(--text-primary); line-height: 1.7; margin-bottom: var(--space-3); }
+    .module-nav { display: flex; justify-content: space-between; padding-block: var(--space-8); border-top: 1px solid var(--border-subtle); margin-top: var(--space-12); }
+    .module-nav a { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--accent); text-decoration: none; letter-spacing: 0.03em; transition: opacity var(--transition); }
+    .module-nav a:hover { opacity: 0.7; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="../index.html" class="header__logo" aria-label="Cyber for Everyone — Home">
+        <svg class="header__logo-mark" viewBox="0 0 32 36" fill="none" aria-hidden="true">
+          <path d="M16 2L29 7.5V19C29 25.5 23.5 31 16 34C8.5 31 3 25.5 3 19V7.5L16 2Z" stroke="currentColor" stroke-width="1.2"/>
+          <line x1="10" y1="13" x2="22" y2="13" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+          <line x1="10" y1="18" x2="22" y2="18" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+          <line x1="10" y1="23" x2="22" y2="23" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+          <line x1="13" y1="10" x2="13" y2="26" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+          <line x1="19" y1="10" x2="19" y2="26" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+          <circle cx="16" cy="18" r="2.5" stroke="currentColor" stroke-width="1" fill="none"/>
+          <circle cx="16" cy="18" r="0.8" fill="currentColor"/>
+        </svg>
+        <span class="header__logo-text">Cyber for<br>Everyone</span>
+      </a>
+
+      <nav class="header__nav" id="main-nav" aria-label="Main navigation">
+        <a href="../index.html#mission">Mission</a>
+        <a href="../index.html#curriculum">Curriculum</a>
+        <a href="../index.html#get-involved">Get Involved</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+        </button>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 12h18M3 6h18M3 18h18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MODULE HERO -->
+  <section class="module-hero" aria-labelledby="module-title">
+    <div class="container">
+      <p class="module-hero__num fade-in">Module 06</p>
+      <h1 class="module-hero__title fade-in" id="module-title">Social Engineering</h1>
+      <p class="module-hero__desc fade-in">How attackers manipulate people through urgency, authority, and trust — and how to recognize it before it's too late.</p>
+    </div>
+  </section>
+
+  <!-- MODULE CONTENT -->
+  <section class="module-content">
+    <div class="container">
+
+      <!-- Section 1: The Human Vulnerability -->
+      <div class="fade-in">
+        <h2>The Human Vulnerability</h2>
+        <p>Companies spend millions on firewalls, encryption, and intrusion detection systems. But all of that technology has a single point of failure: the person sitting at the keyboard. Social engineering is the practice of manipulating people — not machines — into giving up confidential information, granting access, or taking actions that compromise security.</p>
+        <p>It works because human beings are wired to be helpful, to trust authority, to respond to urgency, and to reciprocate kindness. These are good qualities in everyday life. They're also exactly the instincts that attackers exploit.</p>
+        <p>Social engineering is the oldest form of hacking. Long before anyone wrote computer code, con artists were tricking people out of their money and secrets using the same psychological techniques. Today, social engineering is responsible for more data breaches than any other attack method. According to security researchers, over 90% of successful cyberattacks begin with some form of social engineering — usually a phishing email or a phone call.</p>
+        <p>The most sophisticated security system in the world can't protect you if you willingly hand over the keys. That's why understanding how manipulation works is one of the most valuable skills you can develop.</p>
+      </div>
+
+      <!-- Section 2: The Six Principles of Manipulation -->
+      <div class="fade-in">
+        <h2>The Six Principles of Manipulation</h2>
+        <p>Social engineers don't rely on luck. They use well-documented psychological principles — techniques identified by psychologist Robert Cialdini — that reliably influence human behavior. Understanding these principles is your best defense, because once you can name the technique being used on you, it loses most of its power.</p>
+
+        <h3>1. Reciprocity</h3>
+        <p>When someone does something for you, you feel obligated to return the favor. Attackers exploit this by offering help, a gift, or a favor first — then following up with a request. For example, someone calls your office claiming to be from IT: "I just fixed a bug in your email system — can you verify it's working by giving me your login credentials so I can check from my end?" They did you a "favor," so it feels rude not to help them back.</p>
+
+        <h3>2. Commitment and Consistency</h3>
+        <p>Once you've agreed to something small, you're much more likely to agree to something bigger — because people want to be consistent with their past actions. An attacker might start with a harmless request: "Can you confirm your department?" Then: "And your employee ID?" Then: "I just need your password to finalize the security update." Each request feels like a small step from the last one, so you keep going.</p>
+
+        <h3>3. Social Proof</h3>
+        <p>People look to others to determine what's normal and safe. Attackers use this by claiming others have already complied: "Everyone else in the department already gave me their credentials for the security audit" or "Your colleague Sarah already approved this wire transfer." You don't want to be the difficult one who holds things up, so you go along with it.</p>
+
+        <h3>4. Authority</h3>
+        <p>People are conditioned to follow instructions from authority figures. A caller claiming to be from IT, from the CEO's office, from your bank's fraud department, or from the IRS carries automatic credibility — even if they provide no proof of who they are. The more urgent and authoritative they sound, the less likely you are to question them.</p>
+
+        <h3>5. Liking</h3>
+        <p>You're more likely to comply with requests from people you like. Social engineers build rapport quickly — they're friendly, they find common ground, they pay compliments. By the time they make their actual request, you feel like you're helping a friend rather than giving sensitive information to a stranger.</p>
+
+        <h3>6. Scarcity and Urgency</h3>
+        <p>This is the most common technique in social engineering attacks. "Your account will be locked in 10 minutes unless you verify your identity now." "This offer expires today." "I need this processed before the CEO gets back from lunch." Urgency is designed to short-circuit your critical thinking. When you feel pressured to act immediately, you don't take the time to verify whether the request is legitimate.</p>
+
+        <div class="tip-box">
+          <div class="tip-box__label">The Key Insight</div>
+          <div class="tip-box__content">Whenever you feel <strong>rushed</strong>, <strong>pressured</strong>, or <strong>guilty</strong> about a request for information or action — stop. These feelings are exactly what attackers want you to feel. A legitimate request can wait five minutes for you to verify it through a separate channel.</div>
+        </div>
+      </div>
+
+      <!-- Section 3: Common Social Engineering Attacks -->
+      <div class="fade-in">
+        <h2>Common Social Engineering Attacks</h2>
+        <p>Social engineering takes many forms, from sophisticated phone calls to simple physical tricks. Here are the most common techniques attackers use:</p>
+
+        <h3>Pretexting</h3>
+        <p>The attacker creates a fabricated scenario (a "pretext") to gain your trust and extract information. They might pose as a bank employee, IT support technician, insurance agent, or coworker. The scenario is designed to seem plausible and give the attacker a reason to ask for sensitive information. For example: "Hi, this is James from your company's IT helpdesk. We've detected unusual login activity on your account and need to verify your identity. Can you confirm your username and the last four digits of your password?" The story sounds reasonable, the persona sounds professional, and the urgency seems real — but it's entirely fabricated.</p>
+
+        <h3>Baiting</h3>
+        <p>Baiting uses curiosity or greed to lure you into a trap. The classic example is an infected USB drive left in a parking lot, break room, or elevator — labeled with something enticing like "Salary Data 2026" or "Confidential." When someone picks it up and plugs it into their computer out of curiosity, malware is automatically installed. The digital version of baiting includes "free" downloads, pirated software, or too-good-to-be-true offers that require you to install something or enter your credentials.</p>
+
+        <h3>Tailgating (Piggybacking)</h3>
+        <p>This is a physical attack. The attacker waits near a secured entrance — a door that requires a badge, a keycode, or a buzzer — and follows someone through when they open it. They might be carrying a box and ask you to hold the door: "My hands are full, could you get that?" Or they simply walk closely behind you and slip through before the door closes. Once inside, they have physical access to your workplace, your network, and potentially your servers.</p>
+
+        <h3>Quid Pro Quo</h3>
+        <p>The attacker offers something of value in exchange for information or access. The most common version is fake tech support: someone calls claiming to be from your software vendor, offers to fix a problem you've been having, and asks you to install a remote access tool so they can "help." Once installed, they have complete control of your computer. Other versions include fake surveys that offer gift cards in exchange for "a few security questions" — questions that happen to be your account recovery answers.</p>
+
+        <h3>Watering Hole Attacks</h3>
+        <p>Instead of targeting you directly, the attacker compromises a website you frequently visit. If they know your company's employees regularly use a specific industry forum, news site, or vendor portal, they can infect that site with malware. When you visit the site as part of your normal routine, your device gets compromised without any suspicious emails or phone calls — making it extremely difficult to detect.</p>
+      </div>
+
+      <!-- Section 4: Real-World Examples -->
+      <div class="fade-in">
+        <h2>Real-World Examples</h2>
+        <p>Social engineering attacks aren't theoretical — they happen every day to ordinary people. Here are scenarios based on real-world patterns that you or someone you know could easily encounter:</p>
+
+        <div class="threat-panel">
+          <div class="threat-panel__bar">
+            <span class="threat-panel__dot"></span>
+            <span class="threat-panel__dot"></span>
+            <span class="threat-panel__dot"></span>
+            <span class="threat-panel__label">real-world-scenarios.log</span>
+          </div>
+          <div class="threat-panel__body">
+            <div class="threat-line threat-line--high"><span class="threat-tag">[SCENARIO 1]</span> A caller says they're from your bank's fraud department.</div>
+            <div class="threat-line threat-line--med"><span class="threat-tag">[DETAIL]</span> They know your name, your bank, and the last 4 digits of your card.</div>
+            <div class="threat-line threat-line--med"><span class="threat-tag">[DETAIL]</span> They say there's suspicious activity and need you to "verify" your full card number.</div>
+            <div class="threat-line threat-line--med"><span class="threat-tag">[DETAIL]</span> Your real bank will NEVER ask for your full card number by phone.</div>
+            <div class="threat-line">&nbsp;</div>
+            <div class="threat-line threat-line--high"><span class="threat-tag">[SCENARIO 2]</span> An email from "your boss" urgently asks you to buy gift cards.</div>
+            <div class="threat-line threat-line--med"><span class="threat-tag">[DETAIL]</span> "I'm in a meeting and can't talk. Buy 4 x $200 Amazon cards for a client."</div>
+            <div class="threat-line threat-line--med"><span class="threat-tag">[DETAIL]</span> "Send me the codes ASAP. I'll reimburse you."</div>
+            <div class="threat-line threat-line--med"><span class="threat-tag">[DETAIL]</span> No legitimate boss will ever ask for gift card codes via email.</div>
+            <div class="threat-line">&nbsp;</div>
+            <div class="threat-line threat-line--high"><span class="threat-tag">[SCENARIO 3]</span> A LinkedIn recruiter sends you a "job description" PDF.</div>
+            <div class="threat-line threat-line--med"><span class="threat-tag">[DETAIL]</span> Profile looks real — 500+ connections, professional headshot.</div>
+            <div class="threat-line threat-line--med"><span class="threat-tag">[DETAIL]</span> The PDF installs malware when opened. Legitimate recruiters use links.</div>
+            <div class="threat-line">&nbsp;</div>
+            <div class="threat-line threat-line--high"><span class="threat-tag">[SCENARIO 4]</span> A "delivery person" at your office asks for access to the server room.</div>
+            <div class="threat-line threat-line--med"><span class="threat-tag">[DETAIL]</span> They're wearing a uniform, carrying a clipboard, acting impatient.</div>
+            <div class="threat-line threat-line--med"><span class="threat-tag">[DETAIL]</span> No delivery requires server room access. Always verify with management.</div>
+            <div class="threat-line">&nbsp;</div>
+            <div class="threat-line threat-status"><span class="threat-tag threat-tag--ok">[INFO]</span> In every case, slowing down and verifying would have prevented the attack.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 5: How to Defend Yourself -->
+      <div class="fade-in">
+        <h2>How to Defend Yourself</h2>
+        <p>The single most important principle in defending against social engineering is <strong>verification through a separate channel</strong>. This means: if someone contacts you asking for information, access, or action — you confirm their identity and their request using a completely different method of communication than the one they used to reach you.</p>
+
+        <h3>The Verification Principle in Practice</h3>
+        <ul>
+          <li><strong>If someone calls claiming to be your bank</strong> — hang up. Look up your bank's phone number on your card or their official website. Call that number and ask if they were trying to reach you. Never use a phone number the caller gives you.</li>
+          <li><strong>If your boss emails asking for something unusual</strong> — don't reply to the email. Walk to their office, call their known phone number, or send them a message through a different platform like Slack or Teams. Confirm the request in person or through a channel you trust.</li>
+          <li><strong>If IT calls asking for your credentials</strong> — tell them you'll call the IT helpdesk directly. Any real IT professional will understand and approve of this caution. If they push back, that's a red flag.</li>
+          <li><strong>If someone at your door claims they need access</strong> — ask for identification. Call the company they claim to be from. Check with your office manager or security team. Do not let anyone in based solely on a uniform, a badge that you can't verify, or a confident attitude.</li>
+        </ul>
+
+        <h3>The Golden Rules</h3>
+        <ol>
+          <li><strong>Slow down.</strong> Urgency is the attacker's most powerful weapon. Any time you feel rushed, that should trigger suspicion — not compliance. Legitimate organizations will never punish you for taking time to verify.</li>
+          <li><strong>It is always okay to say: "Let me verify that first."</strong> Practice saying this. Make it automatic. No real bank, employer, government agency, or service provider will object to you confirming their identity before sharing information.</li>
+          <li><strong>Never give sensitive information to someone who contacted you.</strong> If they called you, emailed you, or messaged you first — they need to prove who they are. You initiated nothing, so you owe them nothing.</li>
+          <li><strong>Trust your instincts.</strong> If something feels off, it probably is. The "gut feeling" that something isn't right is often your subconscious recognizing patterns of manipulation before your conscious mind catches up.</li>
+        </ol>
+
+        <div class="tip-box">
+          <div class="tip-box__label">Remember This</div>
+          <div class="tip-box__content">Being cautious is not rude. Being suspicious is not paranoid. In a world where social engineering is the number one attack method, verification is simply responsible behavior. The five seconds it takes to say "let me call you back" can save you thousands of dollars, your identity, or your company's data.</div>
+        </div>
+      </div>
+
+      <!-- Section 6: At Work vs. At Home -->
+      <div class="fade-in">
+        <h2>At Work vs. At Home</h2>
+        <p>Social engineering doesn't clock out at 5 PM. Attackers target people in every context — your office, your home, your phone, your email, and your social media. The techniques are the same; only the setting changes.</p>
+
+        <h3>At Work</h3>
+        <ul>
+          <li><strong>Report suspicious calls and emails to IT.</strong> Don't just delete a phishing email — report it. Your IT team can warn others and block the sender. Most companies have a "report phishing" button in their email client. Use it.</li>
+          <li><strong>Don't hold doors for strangers.</strong> This feels impolite, but it's essential security. If someone doesn't have a badge, direct them to reception. A friendly "The front desk can help you get a visitor pass" is all it takes.</li>
+          <li><strong>Verify unusual requests from leadership.</strong> CEO fraud (also called Business Email Compromise) is one of the most financially damaging attacks. If you receive any unusual request from a senior leader — especially involving money, wire transfers, or sensitive data — verify it through a different channel before acting. Real executives will appreciate your diligence.</li>
+          <li><strong>Be careful what you share about work online.</strong> Posting about your company's internal systems, org structure, or upcoming plans on social media gives attackers valuable intelligence for crafting targeted attacks.</li>
+        </ul>
+
+        <h3>At Home</h3>
+        <ul>
+          <li><strong>Never give information to inbound callers.</strong> If someone calls you — from your "bank," the "IRS," "Microsoft," or anywhere else — do not provide any personal information. Hang up and call the organization directly using a number you look up yourself.</li>
+          <li><strong>Teach your children.</strong> Kids are increasingly targeted through gaming platforms, social media, and messaging apps. Teach them that people online are not always who they claim to be, and that it's always safe to come to you with something that feels wrong.</li>
+          <li><strong>Protect elderly family members.</strong> Older adults are disproportionately targeted by phone scams, tech support fraud, and romance scams. Have honest, non-judgmental conversations about common tactics. Set up their devices with call filtering. Let them know there is no shame in being targeted — these attackers are professionals.</li>
+          <li><strong>Be skeptical of unsolicited offers.</strong> If you didn't enter a contest, you didn't win a prize. If a stranger is offering you something for nothing, they want something from you. Free tech support, unexpected refunds, surprise inheritances — these are all classic bait.</li>
+        </ul>
+
+        <h3>Create a Family Verification Code Word</h3>
+        <p>One of the most effective protections for your family is a code word — a secret word or phrase that only your family knows. If someone calls claiming to be a family member in distress ("Grandma, I'm in jail and need bail money"), you can ask for the code word. If they can't provide it, you know it's a scam. This is especially important as AI voice cloning technology becomes more convincing. Choose something obscure that wouldn't be guessable from social media — not a pet's name or birthdate.</p>
+
+        <div class="tip-box">
+          <div class="tip-box__label">Family Code Word Examples</div>
+          <div class="tip-box__content">Pick a word that's memorable but random — something unrelated to your family's public information. "Pineapple telescope," "blue mercury," or "winter guitar" all work. The point is that it's something only your family would know. Share it in person, not over text or email. Review and refresh it once a year.</div>
+        </div>
+      </div>
+
+      <!-- Action Checklist -->
+      <div class="fade-in">
+        <div class="action-checklist">
+          <h2 class="action-checklist__title">What to Do Right Now</h2>
+          <ol>
+            <li><strong>Establish a personal policy: never give information to inbound callers.</strong> Starting today, if someone calls you asking for personal information, your answer is always "I'll call you back." Look up the real number and call them directly.</li>
+            <li><strong>Practice the verification habit.</strong> The next time you receive any unusual request — by email, phone, or in person — verify it through a separate channel before acting, even if it seems legitimate.</li>
+            <li><strong>Create a family verification code word.</strong> Sit down with your household and choose a secret word. Make sure everyone knows it, and agree that you'll ask for it if you ever receive an emergency call claiming to be from a family member.</li>
+            <li><strong>Report suspicious contacts to your workplace IT department.</strong> Forward phishing emails, report unusual phone calls, and flag anything that feels like a social engineering attempt. Your report could protect your entire organization.</li>
+            <li><strong>Share this module with someone who could be vulnerable.</strong> Think of one person in your life — a parent, grandparent, teenager, or friend — who might benefit from understanding these tactics. Send them this page or walk through it with them.</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Module Navigation -->
+      <nav class="module-nav fade-in" aria-label="Module navigation">
+        <a href="privacy.html">← Module 05: Privacy Basics</a>
+        <a href="../index.html#curriculum">Back to Curriculum →</a>
+      </nav>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__left">
+        <a href="../index.html" class="footer__logo" aria-label="Cyber for Everyone — Home">
+          <svg class="footer__logo-mark" viewBox="0 0 32 36" fill="none" aria-hidden="true">
+            <path d="M16 2L29 7.5V19C29 25.5 23.5 31 16 34C8.5 31 3 25.5 3 19V7.5L16 2Z" stroke="currentColor" stroke-width="1.2"/>
+            <circle cx="16" cy="18" r="2.5" stroke="currentColor" stroke-width="1" fill="none"/>
+            <circle cx="16" cy="18" r="0.8" fill="currentColor"/>
+          </svg>
+          <span class="footer__logo-text">Cyber for Everyone</span>
+        </a>
+        <p class="footer__tagline">Free cybersecurity education for every community.</p>
+      </div>
+      <div class="footer__right">
+        <div class="footer__copy">&copy; <span id="year"></span> Cyber for Everyone. All rights reserved.</div>
+        <div class="footer__links">
+          <a href="mailto:cyberforeveryone@pm.me">Contact</a>
+          <a href="../index.html#curriculum">Curriculum</a>
+          <a href="../index.html#get-involved">Volunteer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme toggle
+    (function () {
+      const t = document.querySelector('[data-theme-toggle]');
+      const r = document.documentElement;
+      let d = r.getAttribute('data-theme') || 'dark';
+
+      function setIcon() {
+        if (!t) return;
+        t.innerHTML = d === 'dark'
+          ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+          : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+        t.setAttribute('aria-label', 'Switch to ' + (d === 'dark' ? 'light' : 'dark') + ' mode');
+      }
+
+      setIcon();
+      t && t.addEventListener('click', () => {
+        d = d === 'dark' ? 'light' : 'dark';
+        r.setAttribute('data-theme', d);
+        setIcon();
+      });
+    })();
+
+    // Mobile nav
+    (function () {
+      const btn = document.getElementById('mobile-toggle');
+      const nav = document.getElementById('main-nav');
+      btn && btn.addEventListener('click', () => {
+        const open = nav.classList.toggle('active');
+        btn.setAttribute('aria-expanded', open);
+      });
+      nav && nav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          nav.classList.remove('active');
+          btn && btn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+
+    // Scroll fade-in
+    (function () {
+      const els = document.querySelectorAll('.fade-in');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(el => el.classList.add('visible'));
+        return;
+      }
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(el => obs.observe(el));
+    })();
+
+    // Header scroll state
+    (function () {
+      const header = document.getElementById('header');
+      window.addEventListener('scroll', () => {
+        header.classList.toggle('header--scrolled', window.scrollY > 20);
+      }, { passive: true });
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Module 03: Online Scams — Cyber for Everyone</title>
+  <meta name="description" content="Recognizing common fraud schemes — from romance scams to fake tech support and government impersonators. Free cybersecurity education from Cyber for Everyone.">
+
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600&f[]=satoshi@400,500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../style.css">
+
+  <style>
+    .module-hero { padding-top: clamp(var(--space-16), 10vw, var(--space-24)); padding-bottom: clamp(var(--space-8), 4vw, var(--space-12)); }
+    .module-hero__num { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-tertiary); letter-spacing: 0.08em; margin-bottom: var(--space-4); }
+    .module-hero__title { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 600; color: var(--text-primary); letter-spacing: -0.02em; margin-bottom: var(--space-4); }
+    .module-hero__desc { font-size: var(--text-base); color: var(--text-secondary); max-width: 560px; line-height: 1.7; }
+    .module-content { padding-bottom: clamp(var(--space-16), 7vw, var(--space-24)); }
+    .module-content h2 { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-4); letter-spacing: -0.015em; }
+    .module-content h3 { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 500; color: var(--text-primary); margin-bottom: var(--space-3); margin-top: var(--space-8); }
+    .module-content p { font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-4); max-width: 680px; }
+    .module-content ul, .module-content ol { padding-left: var(--space-6); margin-bottom: var(--space-4); }
+    .module-content li { font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-2); }
+    .module-content li::marker { color: var(--accent); }
+    .tip-box { border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: var(--space-6); background: var(--bg-card); margin-block: var(--space-6); }
+    .tip-box__label { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--accent); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: var(--space-3); }
+    .tip-box__content { font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.7; }
+    .action-checklist { border: 1px solid var(--accent); border-radius: var(--radius-lg); padding: var(--space-8); background: var(--accent-dim); margin-block: var(--space-8); }
+    .action-checklist__title { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-4); }
+    .action-checklist li { font-size: var(--text-sm); color: var(--text-primary); line-height: 1.7; margin-bottom: var(--space-3); }
+    .module-nav { display: flex; justify-content: space-between; padding-block: var(--space-8); border-top: 1px solid var(--border-subtle); margin-top: var(--space-12); }
+    .module-nav a { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--accent); text-decoration: none; letter-spacing: 0.03em; transition: opacity var(--transition); }
+    .module-nav a:hover { opacity: 0.7; }
+  </style>
+
+  <script>
+    (function(){
+      var d = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', d);
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="../index.html" class="header__logo" aria-label="Cyber for Everyone — Home">
+        <svg class="header__logo-mark" viewBox="0 0 32 36" fill="none" aria-hidden="true">
+          <path d="M16 2L29 7.5V19C29 25.5 23.5 31 16 34C8.5 31 3 25.5 3 19V7.5L16 2Z" stroke="currentColor" stroke-width="1.2"/>
+          <line x1="10" y1="13" x2="22" y2="13" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+          <line x1="10" y1="18" x2="22" y2="18" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+          <line x1="10" y1="23" x2="22" y2="23" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+          <line x1="13" y1="10" x2="13" y2="26" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+          <line x1="19" y1="10" x2="19" y2="26" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+          <circle cx="16" cy="18" r="2.5" stroke="currentColor" stroke-width="1" fill="none"/>
+          <circle cx="16" cy="18" r="0.8" fill="currentColor"/>
+        </svg>
+        <span class="header__logo-text">Cyber for<br>Everyone</span>
+      </a>
+
+      <nav class="header__nav" id="main-nav" aria-label="Main navigation">
+        <a href="../index.html#mission">Mission</a>
+        <a href="../index.html#curriculum">Curriculum</a>
+        <a href="../index.html#get-involved">Get Involved</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+        </button>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 12h18M3 6h18M3 18h18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MODULE HERO -->
+  <section class="module-hero" aria-labelledby="module-title">
+    <div class="container">
+      <p class="module-hero__num fade-in">Module 03</p>
+      <h1 class="module-hero__title fade-in" id="module-title">Online Scams</h1>
+      <p class="module-hero__desc fade-in">Recognizing common fraud schemes — from romance scams to fake tech support and government impersonators.</p>
+    </div>
+  </section>
+
+  <!-- MODULE CONTENT -->
+  <section class="module-content">
+    <div class="container">
+
+      <!-- Section 1: The Anatomy of a Scam -->
+      <div class="fade-in">
+        <h2>The Anatomy of a Scam</h2>
+        <p>Every scam, no matter how sophisticated, relies on the same basic strategy: exploiting human emotions. Fear, greed, loneliness, urgency, trust — scammers know exactly which buttons to push, and they push them deliberately. This isn't random. Modern scammers operate like businesses, with scripts, call centers, and organizational hierarchies. Some run fraud operations with dozens of employees working in shifts.</p>
+        <p>According to the Federal Trade Commission, Americans reported losing more than $10 billion to fraud in 2023 alone — and that only accounts for people who actually reported it. The true number is likely far higher. These losses hit people of every age, education level, and income bracket. Falling for a scam doesn't mean you're unintelligent. It means a professional manipulator targeted you at the right moment with the right message.</p>
+        <p>Scams work because they short-circuit your rational thinking. When you feel panicked ("Your account has been compromised!"), excited ("You've won a $500 gift card!"), or emotionally invested ("I've never felt this way about anyone before"), your brain shifts into a reactive mode that bypasses careful analysis. Understanding this is your first line of defense: if something triggers a strong emotional reaction and demands immediate action, that's precisely when you should slow down.</p>
+
+        <div class="tip-box">
+          <div class="tip-box__label">Key Insight</div>
+          <div class="tip-box__content">Scammers don't hack computers — they hack people. The most effective defense isn't software. It's the pause between receiving a message and acting on it. Every time you feel pressured to act immediately, that pressure itself is the biggest red flag.</div>
+        </div>
+      </div>
+
+      <!-- Section 2: Romance Scams -->
+      <div class="fade-in">
+        <h2>Romance Scams</h2>
+        <p>Romance scams are among the most emotionally devastating forms of fraud. They work by building a genuine-feeling emotional connection over weeks or months before asking for money. Victims aren't foolish — they're human beings who were systematically manipulated by someone trained to exploit loneliness and trust.</p>
+
+        <h3>How They Work</h3>
+        <p>The scammer creates an attractive profile on a dating app, social media platform, or even a community forum. They often use stolen photos of real people — frequently military service members, doctors, or engineers working abroad. They initiate contact and invest significant time building what feels like a real relationship. Daily messages, phone calls, shared stories, future plans together — all designed to establish deep emotional trust.</p>
+        <p>Once trust is established, a crisis appears. A medical emergency. An unexpected travel expense. A business deal that fell through. "I just need a little help to get through this." The amounts may start small, but they escalate. Some victims lose their life savings over the course of months, sending money again and again because the emotional bond feels real.</p>
+
+        <h3>Red Flags</h3>
+        <ul>
+          <li>They move fast emotionally — declaring love within days or weeks</li>
+          <li>They always have an excuse for why they can't video chat or meet in person</li>
+          <li>They claim to be in the military, on an oil rig, or working overseas</li>
+          <li>They ask for money, gift cards, or cryptocurrency — for any reason</li>
+          <li>They want to move the conversation off the dating platform to a private messaging app</li>
+          <li>Their story has inconsistencies — names, dates, or details don't add up</li>
+          <li>They ask you to keep the relationship or financial help secret</li>
+        </ul>
+
+        <div class="threat-panel">
+          <div class="threat-panel__bar">
+            <span class="threat-panel__dot"></span>
+            <span class="threat-panel__dot"></span>
+            <span class="threat-panel__dot"></span>
+            <span class="threat-panel__label">romance-scam-pattern.log</span>
+          </div>
+          <div class="threat-panel__body">
+            <div class="threat-line threat-line--med"><span class="threat-tag">[WEEK 1]</span> &nbsp;Contact initiated — attractive profile, flattering messages</div>
+            <div class="threat-line threat-line--med"><span class="threat-tag">[WEEK 2-4]</span> Daily communication — builds trust, shares personal "details"</div>
+            <div class="threat-line threat-line--med"><span class="threat-tag">[MONTH 2]</span> &nbsp;Relationship deepens — talks about future, meeting soon</div>
+            <div class="threat-line threat-line--high"><span class="threat-tag">[MONTH 3]</span> &nbsp;First crisis — needs money for emergency, travel, or legal issue</div>
+            <div class="threat-line threat-line--high"><span class="threat-tag">[ONGOING]</span> &nbsp;More crises — amounts escalate, excuses multiply</div>
+            <div class="threat-line">&nbsp;</div>
+            <div class="threat-line threat-status"><span class="threat-tag threat-tag--ok">[RULE]</span> &nbsp;&nbsp;Never send money to someone you haven't met in person.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3: Tech Support Scams -->
+      <div class="fade-in">
+        <h2>Tech Support Scams</h2>
+        <p>Tech support scams exploit the fear that something is wrong with your computer or phone. They come in two main forms: fake warning popups that appear in your web browser, and unsolicited phone calls from people claiming to represent Microsoft, Apple, or your internet service provider.</p>
+
+        <h3>The Fake Popup</h3>
+        <p>You're browsing the web and suddenly a full-screen alert appears: "WARNING: Your computer has been infected! Call this number immediately to prevent data loss." The popup might display a fake "Microsoft" logo, play an alarm sound, or lock your browser so you can't close the tab easily. Everything about it is designed to make you panic.</p>
+        <p>If you call the number, a person answers who sounds professional and claims to be a certified technician. They'll ask you to install remote access software like TeamViewer or AnyDesk so they can "diagnose the problem." Once they have access, they'll open system logs that look alarming to a non-technical person (every computer has these — they're normal), tell you your computer is severely infected, and charge you $200 to $500 for "repairs." In many cases, they'll also install actual malware or steal personal files while they have access.</p>
+
+        <h3>The Cold Call</h3>
+        <p>You receive a phone call from someone claiming to be from "Microsoft Support" or "Apple Technical Services." They say they've detected a problem with your computer or that your security subscription is expiring. They'll ask for remote access or payment to "fix" the issue. This is always a scam. Microsoft, Apple, and other tech companies will never cold-call you about problems with your personal device.</p>
+
+        <h3>What to Do</h3>
+        <ul>
+          <li>If you see a scary popup, close the browser tab. If you can't close it, force-quit the browser entirely (Ctrl+Alt+Delete on Windows, Command+Q on Mac)</li>
+          <li>Never call a phone number displayed in a popup warning</li>
+          <li>Never give remote access to your computer to someone who contacted you first</li>
+          <li>If someone calls claiming to be from a tech company, hang up. Look up the company's real number from their official website if you're concerned</li>
+          <li>If you've already granted access, disconnect from the internet immediately, change your passwords from a different device, and run a malware scan</li>
+        </ul>
+
+        <div class="tip-box">
+          <div class="tip-box__label">Remember</div>
+          <div class="tip-box__content">Legitimate tech companies do not monitor individual personal computers for viruses. They have no way of knowing your specific computer has a problem. Any unsolicited contact about your computer's security is a scam — full stop.</div>
+        </div>
+      </div>
+
+      <!-- Section 4: Government Impersonation Scams -->
+      <div class="fade-in">
+        <h2>Government Impersonation Scams</h2>
+        <p>These scams exploit the authority and fear associated with government agencies. Scammers impersonate the IRS, Social Security Administration, Medicare, or law enforcement to frighten people into paying money or handing over personal information. They rely on the fact that most people feel anxious when a "government official" calls.</p>
+
+        <h3>"Your Social Security Number Has Been Suspended"</h3>
+        <p>You receive a robocall or voicemail saying your Social Security number has been "suspended" or "compromised" due to suspicious activity. They tell you to call back immediately or face arrest. Here's the truth: the Social Security Administration cannot suspend your Social Security number. It doesn't work that way. Your number is assigned to you for life. This is always a scam.</p>
+
+        <h3>"You Owe Back Taxes and Will Be Arrested"</h3>
+        <p>A caller identifies themselves as an IRS agent and says you owe back taxes. They threaten immediate arrest, deportation, or loss of your driver's license unless you pay right now — usually via gift cards, wire transfer, or cryptocurrency. This is a scam. The IRS will never call you demanding immediate payment. They will never threaten you with arrest over the phone. They will never demand payment via gift cards. The IRS communicates through postal mail first, and you always have the right to question and appeal.</p>
+
+        <h3>"Your Medicare Benefits Are Expiring"</h3>
+        <p>Someone calls claiming your Medicare card is expiring and they need your personal information to issue a new one, or that you qualify for a special new benefit but need to verify your identity. Medicare benefits do not expire, and Medicare will never call you unsolicited to ask for your personal information or payment.</p>
+
+        <div class="threat-panel">
+          <div class="threat-panel__bar">
+            <span class="threat-panel__dot"></span>
+            <span class="threat-panel__dot"></span>
+            <span class="threat-panel__dot"></span>
+            <span class="threat-panel__label">government-scam-facts.txt</span>
+          </div>
+          <div class="threat-panel__body">
+            <div class="threat-line threat-line--high"><span class="threat-tag">[FACT]</span> The IRS will NEVER call you demanding immediate payment</div>
+            <div class="threat-line threat-line--high"><span class="threat-tag">[FACT]</span> The IRS will NEVER threaten arrest over the phone</div>
+            <div class="threat-line threat-line--high"><span class="threat-tag">[FACT]</span> The IRS will NEVER demand payment via gift cards</div>
+            <div class="threat-line threat-line--high"><span class="threat-tag">[FACT]</span> The SSA cannot "suspend" your Social Security number</div>
+            <div class="threat-line threat-line--high"><span class="threat-tag">[FACT]</span> Medicare benefits do not expire</div>
+            <div class="threat-line">&nbsp;</div>
+            <div class="threat-line threat-status"><span class="threat-tag threat-tag--ok">[INFO]</span> All legitimate government agencies contact you by mail first.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 5: Shopping and Payment Scams -->
+      <div class="fade-in">
+        <h2>Shopping and Payment Scams</h2>
+        <p>Social media feeds are full of ads for products at unbelievable prices — designer items at 80% off, trending electronics for a fraction of the retail price, limited-time deals that expire in hours. Many of these ads lead to fake online stores that exist solely to steal your money or credit card information.</p>
+
+        <h3>How Fake Stores Operate</h3>
+        <p>Scammers create professional-looking websites that mimic real online retailers. They run targeted ads on social media platforms, often using stolen product photos and fabricated customer reviews. When you place an order, one of three things happens: you receive nothing at all, you receive a cheap knockoff or completely different item, or — worst case — they use your payment information for additional fraudulent charges.</p>
+
+        <h3>Warning Signs of a Fake Store</h3>
+        <ul>
+          <li>Prices that are 70% or more below retail — if a $300 item is listed at $49, that's a red flag, not a deal</li>
+          <li>The website has no physical address, phone number, or real contact information</li>
+          <li>They only accept wire transfers, cryptocurrency, or prepaid gift cards — not standard credit cards</li>
+          <li>The website URL looks slightly off — extra characters, misspellings, or an unusual domain extension</li>
+          <li>Poor grammar, low-resolution images, or a design that looks hastily assembled</li>
+          <li>No return policy, or a return policy buried in confusing language</li>
+          <li>The site was registered very recently (you can check at whois.net)</li>
+        </ul>
+
+        <h3>Protect Yourself When Shopping Online</h3>
+        <ul>
+          <li>Use a credit card instead of a debit card — credit cards offer better fraud protection and dispute processes. With a debit card, the money is gone from your account immediately</li>
+          <li>Check the URL carefully before entering any payment information</li>
+          <li>Search for the store name plus "review" or "scam" before purchasing</li>
+          <li>Be skeptical of any deal that seems too good to be true — it almost certainly is</li>
+          <li>Stick to well-known retailers or verify that an unfamiliar store has a real track record</li>
+        </ul>
+
+        <div class="tip-box">
+          <div class="tip-box__label">Credit vs. Debit</div>
+          <div class="tip-box__content">Always use a credit card for online purchases. If a transaction is fraudulent, you can dispute it and the charge is reversed while the investigation happens. With a debit card, the money is pulled directly from your bank account, and getting it back can take weeks — if it's possible at all.</div>
+        </div>
+      </div>
+
+      <!-- Section 6: The Universal Red Flags -->
+      <div class="fade-in">
+        <h2>The Universal Red Flags</h2>
+        <p>No matter the specific type of scam, they almost all share the same core tactics. Learning to recognize these universal red flags will help you spot fraud you haven't even heard of yet. If you encounter any of these, treat the situation with extreme caution.</p>
+
+        <ol>
+          <li><strong>Urgency and pressure.</strong> "Act now or lose your account." "This offer expires in 10 minutes." "You'll be arrested today if you don't pay." Scammers create artificial time pressure because they don't want you to think, research, or ask someone else for advice.</li>
+          <li><strong>Unusual payment methods.</strong> Requests for gift cards (iTunes, Google Play, Amazon), wire transfers, cryptocurrency, or prepaid debit cards. Legitimate businesses and government agencies never ask for payment in these forms. Gift cards are untraceable once the codes are shared.</li>
+          <li><strong>Unsolicited contact.</strong> You didn't initiate the interaction. Someone reached out to you — by phone, email, text, or social media message — with an offer, warning, or request. Treat every unsolicited contact with skepticism.</li>
+          <li><strong>Requests for personal information.</strong> Social Security numbers, bank account details, passwords, PINs. No legitimate organization will ask you for sensitive information through an unsolicited phone call, email, or message.</li>
+          <li><strong>Too good to be true.</strong> Prize winnings for a contest you never entered. Investment opportunities with guaranteed high returns and zero risk. Products at impossibly low prices. If it sounds too good to be true, it is.</li>
+          <li><strong>Emotional manipulation.</strong> Love, fear, excitement, guilt, sympathy. Scammers deliberately trigger emotions to override your logical thinking. The stronger the emotional pull, the more carefully you should examine the situation.</li>
+          <li><strong>Secrecy.</strong> "Don't tell your bank about this transaction." "Don't mention this to your family." "This is confidential." Scammers isolate their victims because other people are likely to recognize the scam.</li>
+          <li><strong>Threatened consequences.</strong> Arrest, lawsuits, account closure, deportation, embarrassment. These threats create fear that pushes you to comply rather than verify. Real organizations don't threaten people into paying over the phone.</li>
+        </ol>
+
+        <div class="threat-panel">
+          <div class="threat-panel__bar">
+            <span class="threat-panel__dot"></span>
+            <span class="threat-panel__dot"></span>
+            <span class="threat-panel__dot"></span>
+            <span class="threat-panel__label">red-flag-checklist.txt</span>
+          </div>
+          <div class="threat-panel__body">
+            <div class="threat-line threat-line--high"><span class="threat-tag">[FLAG]</span> Urgency — "Act now or else"</div>
+            <div class="threat-line threat-line--high"><span class="threat-tag">[FLAG]</span> Unusual payment — gift cards, wire, crypto</div>
+            <div class="threat-line threat-line--high"><span class="threat-tag">[FLAG]</span> Unsolicited contact — they reached out to you</div>
+            <div class="threat-line threat-line--high"><span class="threat-tag">[FLAG]</span> Personal info requests — SSN, bank, passwords</div>
+            <div class="threat-line threat-line--med"><span class="threat-tag">[FLAG]</span> Too good to be true — guaranteed returns, free prizes</div>
+            <div class="threat-line threat-line--med"><span class="threat-tag">[FLAG]</span> Emotional manipulation — love, fear, excitement</div>
+            <div class="threat-line threat-line--med"><span class="threat-tag">[FLAG]</span> Secrecy — "Don't tell anyone"</div>
+            <div class="threat-line threat-line--med"><span class="threat-tag">[FLAG]</span> Threatened consequences — arrest, lawsuits</div>
+            <div class="threat-line">&nbsp;</div>
+            <div class="threat-line threat-status"><span class="threat-tag threat-tag--ok">[SAFE]</span> Any one of these is reason enough to stop and verify.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Checklist -->
+      <div class="fade-in">
+        <div class="action-checklist">
+          <h2 class="action-checklist__title">What to Do Right Now</h2>
+          <ol>
+            <li><strong>Never send money to someone you haven't met in person</strong> — no exceptions, no matter how real the relationship or emergency feels.</li>
+            <li><strong>Verify any suspicious call by hanging up and calling back.</strong> Look up the organization's official phone number yourself — don't use a number provided by the caller.</li>
+            <li><strong>Check FTC scam alerts regularly.</strong> Visit <a href="https://consumer.ftc.gov" style="color: var(--accent);">consumer.ftc.gov</a> to stay informed about current fraud schemes targeting your area.</li>
+            <li><strong>Report scams</strong> at <a href="https://reportfraud.ftc.gov" style="color: var(--accent);">reportfraud.ftc.gov</a> — even if you didn't lose money. Your report helps protect others.</li>
+            <li><strong>Tell someone you trust if something feels wrong.</strong> Scammers rely on isolation. Talking to a friend, family member, or advisor breaks that isolation and often reveals the scam immediately.</li>
+            <li><strong>Use credit cards instead of debit cards</strong> for any online or phone purchases to get better fraud protection.</li>
+            <li><strong>Remember: legitimate organizations never demand immediate action.</strong> You always have time to verify. If someone says you don't, that's the clearest sign it's a scam.</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Module Navigation -->
+      <nav class="module-nav fade-in" aria-label="Module navigation">
+        <a href="passwords.html">← Module 02: Passwords</a>
+        <a href="device-safety.html">Module 04: Device Safety →</a>
+      </nav>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__left">
+        <a href="../index.html" class="footer__logo" aria-label="Cyber for Everyone — Home">
+          <svg class="footer__logo-mark" viewBox="0 0 32 36" fill="none" aria-hidden="true">
+            <path d="M16 2L29 7.5V19C29 25.5 23.5 31 16 34C8.5 31 3 25.5 3 19V7.5L16 2Z" stroke="currentColor" stroke-width="1.2"/>
+            <circle cx="16" cy="18" r="2.5" stroke="currentColor" stroke-width="1" fill="none"/>
+            <circle cx="16" cy="18" r="0.8" fill="currentColor"/>
+          </svg>
+          <span class="footer__logo-text">Cyber for Everyone</span>
+        </a>
+        <p class="footer__tagline">Free cybersecurity education for every community.</p>
+      </div>
+      <div class="footer__right">
+        <div class="footer__copy">&copy; <span id="year"></span> Cyber for Everyone. All rights reserved.</div>
+        <div class="footer__links">
+          <a href="mailto:cyberforeveryone@pm.me">Contact</a>
+          <a href="../index.html#curriculum">Curriculum</a>
+          <a href="../index.html#get-involved">Volunteer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme toggle
+    (function () {
+      const t = document.querySelector('[data-theme-toggle]');
+      const r = document.documentElement;
+      let d = r.getAttribute('data-theme') || 'dark';
+
+      function setIcon() {
+        if (!t) return;
+        t.innerHTML = d === 'dark'
+          ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+          : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+        t.setAttribute('aria-label', 'Switch to ' + (d === 'dark' ? 'light' : 'dark') + ' mode');
+      }
+
+      setIcon();
+      t && t.addEventListener('click', () => {
+        d = d === 'dark' ? 'light' : 'dark';
+        r.setAttribute('data-theme', d);
+        setIcon();
+      });
+    })();
+
+    // Mobile nav
+    (function () {
+      const btn = document.getElementById('mobile-toggle');
+      const nav = document.getElementById('main-nav');
+      btn && btn.addEventListener('click', () => {
+        const open = nav.classList.toggle('active');
+        btn.setAttribute('aria-expanded', open);
+      });
+      nav && nav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          nav.classList.remove('active');
+          btn && btn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+
+    // Scroll fade-in
+    (function () {
+      const els = document.querySelectorAll('.fade-in');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(el => el.classList.add('visible'));
+        return;
+      }
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(el => obs.observe(el));
+    })();
+
+    // Header scroll state
+    (function () {
+      const header = document.getElementById('header');
+      window.addEventListener('scroll', () => {
+        header.classList.toggle('header--scrolled', window.scrollY > 20);
+      }, { passive: true });
+    })();
+  </script>
+
+</body>
+</html>

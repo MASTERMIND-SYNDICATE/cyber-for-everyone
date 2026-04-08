@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Module 04: Device Safety — Cyber for Everyone</title>
+  <meta name="description" content="Keeping your phone, computer, and home network secure through updates, settings, and safe habits. Free cybersecurity education from Cyber for Everyone.">
+
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600&f[]=satoshi@400,500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../style.css">
+
+  <style>
+    .module-hero { padding-top: clamp(var(--space-16), 10vw, var(--space-24)); padding-bottom: clamp(var(--space-8), 4vw, var(--space-12)); }
+    .module-hero__num { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-tertiary); letter-spacing: 0.08em; margin-bottom: var(--space-4); }
+    .module-hero__title { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 600; color: var(--text-primary); letter-spacing: -0.02em; margin-bottom: var(--space-4); }
+    .module-hero__desc { font-size: var(--text-base); color: var(--text-secondary); max-width: 560px; line-height: 1.7; }
+    .module-content { padding-bottom: clamp(var(--space-16), 7vw, var(--space-24)); }
+    .module-content h2 { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-4); letter-spacing: -0.015em; }
+    .module-content h3 { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 500; color: var(--text-primary); margin-bottom: var(--space-3); margin-top: var(--space-8); }
+    .module-content p { font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-4); max-width: 680px; }
+    .module-content ul, .module-content ol { padding-left: var(--space-6); margin-bottom: var(--space-4); }
+    .module-content li { font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-2); }
+    .module-content li::marker { color: var(--accent); }
+    .tip-box { border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: var(--space-6); background: var(--bg-card); margin-block: var(--space-6); }
+    .tip-box__label { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--accent); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: var(--space-3); }
+    .tip-box__content { font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.7; }
+    .action-checklist { border: 1px solid var(--accent); border-radius: var(--radius-lg); padding: var(--space-8); background: var(--accent-dim); margin-block: var(--space-8); }
+    .action-checklist__title { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-4); }
+    .action-checklist li { font-size: var(--text-sm); color: var(--text-primary); line-height: 1.7; margin-bottom: var(--space-3); }
+    .module-nav { display: flex; justify-content: space-between; padding-block: var(--space-8); border-top: 1px solid var(--border-subtle); margin-top: var(--space-12); }
+    .module-nav a { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--accent); text-decoration: none; letter-spacing: 0.03em; transition: opacity var(--transition); }
+    .module-nav a:hover { opacity: 0.7; }
+  </style>
+
+  <script>
+    (function(){
+      var d = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', d);
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="../index.html" class="header__logo" aria-label="Cyber for Everyone — Home">
+        <svg class="header__logo-mark" viewBox="0 0 32 36" fill="none" aria-hidden="true">
+          <path d="M16 2L29 7.5V19C29 25.5 23.5 31 16 34C8.5 31 3 25.5 3 19V7.5L16 2Z" stroke="currentColor" stroke-width="1.2"/>
+          <line x1="10" y1="13" x2="22" y2="13" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+          <line x1="10" y1="18" x2="22" y2="18" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+          <line x1="10" y1="23" x2="22" y2="23" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+          <line x1="13" y1="10" x2="13" y2="26" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+          <line x1="19" y1="10" x2="19" y2="26" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+          <circle cx="16" cy="18" r="2.5" stroke="currentColor" stroke-width="1" fill="none"/>
+          <circle cx="16" cy="18" r="0.8" fill="currentColor"/>
+        </svg>
+        <span class="header__logo-text">Cyber for<br>Everyone</span>
+      </a>
+
+      <nav class="header__nav" id="main-nav" aria-label="Main navigation">
+        <a href="../index.html#mission">Mission</a>
+        <a href="../index.html#curriculum">Curriculum</a>
+        <a href="../index.html#get-involved">Get Involved</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+        </button>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 12h18M3 6h18M3 18h18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MODULE HERO -->
+  <section class="module-hero" aria-labelledby="module-title">
+    <div class="container">
+      <p class="module-hero__num fade-in">Module 04</p>
+      <h1 class="module-hero__title fade-in" id="module-title">Device Safety</h1>
+      <p class="module-hero__desc fade-in">Keeping your phone, computer, and home network secure through updates, settings, and safe habits.</p>
+    </div>
+  </section>
+
+  <!-- MODULE CONTENT -->
+  <section class="module-content">
+    <div class="container">
+
+      <!-- Section 1: Why Updates Matter More Than Antivirus -->
+      <div class="fade-in">
+        <h2>Why Updates Matter More Than Antivirus</h2>
+        <p>If there's one security habit that matters more than any other, it's this: keep your software up to date. Software updates aren't just about new features. They patch security vulnerabilities — specific weaknesses in code that attackers know how to exploit. When a vulnerability is discovered, the clock starts ticking. Attackers race to exploit it before people install the fix.</p>
+        <p>The WannaCry ransomware attack in 2017 is a perfect example. It infected more than 200,000 computers across 150 countries, locking people out of their files and demanding ransom payments. The attack exploited a vulnerability in Windows that Microsoft had already released a patch for — two months earlier. Every computer that had been updated was immune. Every computer that hadn't was a target.</p>
+        <p>This pattern repeats constantly. The vast majority of successful attacks exploit known vulnerabilities that already have patches available. Attackers count on the fact that people delay updates because they're inconvenient. Don't give them that advantage.</p>
+
+        <h3>Enable Automatic Updates on Everything</h3>
+        <ul>
+          <li><strong>Phone:</strong> iPhone — Settings → General → Software Update → Automatic Updates. Android — Settings → System → Software Update → enable auto-download</li>
+          <li><strong>Computer:</strong> Windows — Settings → Windows Update → turn on automatic updates. Mac — System Settings → General → Software Update → Automatic Updates</li>
+          <li><strong>Browser:</strong> Chrome, Firefox, Safari, and Edge all update automatically by default — just make sure you restart your browser regularly so updates can apply</li>
+          <li><strong>Apps:</strong> Enable auto-update in your device's app store settings. On iPhone — Settings → App Store → App Updates. On Android — Google Play → Settings → Auto-update apps</li>
+        </ul>
+
+        <div class="tip-box">
+          <div class="tip-box__label">The Single Best Habit</div>
+          <div class="tip-box__content">Turning on automatic updates across all your devices prevents more attacks than any antivirus software, VPN, or other security product you could buy. It's free, it's simple, and it works. Do this before anything else on this page.</div>
+        </div>
+      </div>
+
+      <!-- Section 2: Securing Your Phone -->
+      <div class="fade-in">
+        <h2>Securing Your Phone</h2>
+        <p>Your phone is likely the most personal device you own. It holds your email, bank accounts, photos, messages, location history, and more. If someone gains access to your unlocked phone, they have access to your entire digital life. Here's how to lock it down.</p>
+
+        <h3>Screen Lock</h3>
+        <p>Set a PIN of at least 6 digits — not 4. Better yet, use biometric authentication (fingerprint or face recognition) for convenience combined with a strong PIN as backup. Avoid simple patterns and PINs like 123456, 000000, or your birth year. Your screen lock is the front door to everything on your phone.</p>
+
+        <h3>Find My Device</h3>
+        <p>Enable your phone's built-in tracking feature so you can locate, lock, or erase your phone remotely if it's lost or stolen.</p>
+        <ul>
+          <li><strong>iPhone:</strong> Settings → [your name] → Find My → Find My iPhone → turn on all three options</li>
+          <li><strong>Android:</strong> Settings → Security → Find My Device → turn on</li>
+        </ul>
+        <p>If your phone is stolen, you can remotely lock it, display a message, or erase all data. This feature has saved countless people from having their personal information compromised after a phone theft.</p>
+
+        <h3>Review App Permissions</h3>
+        <p>Apps often request more permissions than they actually need. A flashlight app doesn't need access to your contacts. A photo editor doesn't need your location at all times. Periodically review what permissions your apps have and revoke anything that doesn't make sense.</p>
+        <ul>
+          <li><strong>iPhone:</strong> Settings → Privacy & Security — review each category (Location, Contacts, Camera, Microphone, etc.)</li>
+          <li><strong>Android:</strong> Settings → Privacy → Permission Manager — review each permission type</li>
+        </ul>
+
+        <h3>Additional Phone Security</h3>
+        <ul>
+          <li>Only install apps from official stores (Apple App Store, Google Play Store) — sideloaded apps bypass security review</li>
+          <li>Turn off Bluetooth and WiFi when you're not using them in public places — these can be used to track your device or attempt connections</li>
+          <li>Be cautious with charging stations in airports and public spaces — use your own charger and wall adapter, or carry a portable battery</li>
+        </ul>
+
+        <div class="threat-panel">
+          <div class="threat-panel__bar">
+            <span class="threat-panel__dot"></span>
+            <span class="threat-panel__dot"></span>
+            <span class="threat-panel__dot"></span>
+            <span class="threat-panel__label">phone-security-checklist.txt</span>
+          </div>
+          <div class="threat-panel__body">
+            <div class="threat-line threat-line--high"><span class="threat-tag">[CRITICAL]</span> Screen lock: 6+ digit PIN or biometric</div>
+            <div class="threat-line threat-line--high"><span class="threat-tag">[CRITICAL]</span> Find My Device: enabled</div>
+            <div class="threat-line threat-line--med"><span class="threat-tag">[CHECK]</span> &nbsp;&nbsp;App permissions: reviewed &amp; trimmed</div>
+            <div class="threat-line threat-line--med"><span class="threat-tag">[CHECK]</span> &nbsp;&nbsp;Auto-update: turned on</div>
+            <div class="threat-line threat-line--low"><span class="threat-tag">[GOOD]</span> &nbsp;&nbsp;&nbsp;Official app stores only</div>
+            <div class="threat-line threat-line--low"><span class="threat-tag">[GOOD]</span> &nbsp;&nbsp;&nbsp;Bluetooth/WiFi off in public</div>
+            <div class="threat-line">&nbsp;</div>
+            <div class="threat-line threat-status"><span class="threat-tag threat-tag--ok">[INFO]</span> &nbsp;&nbsp;These settings take 5 minutes. Do them now.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3: Securing Your Computer -->
+      <div class="fade-in">
+        <h2>Securing Your Computer</h2>
+        <p>Your computer likely stores years of documents, photos, financial records, and saved passwords. Modern operating systems come with strong built-in security tools — you just need to make sure they're turned on.</p>
+
+        <h3>Built-In Firewall</h3>
+        <p>A firewall monitors incoming and outgoing network traffic and blocks suspicious connections. Both Windows and macOS include one — make sure yours is active.</p>
+        <ul>
+          <li><strong>Windows:</strong> Settings → Privacy & Security → Windows Security → Firewall & Network Protection — verify it's on for all network types</li>
+          <li><strong>Mac:</strong> System Settings → Network → Firewall — turn it on if it's not already</li>
+        </ul>
+
+        <h3>Built-In Antivirus</h3>
+        <p>You don't need to pay for antivirus software. Windows Defender (now called Microsoft Defender) is built into Windows and is genuinely effective — independent testing labs consistently rank it among the best antivirus products available. On macOS, XProtect runs silently in the background. The days when you needed to buy Norton or McAfee are over.</p>
+        <p>Make sure your built-in protection is enabled and scanning regularly. On Windows, open Windows Security and check that virus protection is active with real-time scanning turned on.</p>
+
+        <h3>Full-Disk Encryption</h3>
+        <p>If your laptop is lost or stolen, full-disk encryption prevents anyone from reading your data — even if they remove the hard drive and connect it to another computer. Without encryption, your files are fully accessible to anyone with physical access to the device.</p>
+        <ul>
+          <li><strong>Windows:</strong> Search for "BitLocker" in Settings → turn it on for your main drive (available on Windows Pro/Enterprise; Windows Home has Device Encryption in Settings → Privacy & Security)</li>
+          <li><strong>Mac:</strong> System Settings → Privacy & Security → FileVault → turn on</li>
+        </ul>
+
+        <h3>Use a Standard User Account</h3>
+        <p>Create a standard (non-administrator) account for daily use and keep an admin account just for installing software. This way, if malware tries to install itself or make system changes, it'll be blocked because your daily account doesn't have permission. This one change can stop many types of malware from taking hold.</p>
+
+        <div class="tip-box">
+          <div class="tip-box__label">Save Your Money</div>
+          <div class="tip-box__content">You do not need to buy antivirus software. Windows Defender and macOS XProtect are free, built-in, and effective. Many paid antivirus products actually slow down your computer more than they help. Save your money and make sure the built-in tools are turned on.</div>
+        </div>
+      </div>
+
+      <!-- Section 4: Your Home WiFi Network -->
+      <div class="fade-in">
+        <h2>Your Home WiFi Network</h2>
+        <p>Your home router is the gateway between every device in your house and the internet. If an attacker gains access to your router, they can monitor your traffic, redirect you to fake websites, or use your network for illegal activity. Most routers ship with weak default settings that need to be changed.</p>
+
+        <h3>Change the Default Password</h3>
+        <p>Most routers come with a default administrator password like "admin," "password," or "1234." These defaults are publicly known — you can find lists of them on the internet for every router brand. Log into your router's settings page (usually by typing 192.168.1.1 or 192.168.0.1 into your browser) and change the admin password to something long and unique. This is the password to manage the router, which is separate from the WiFi password.</p>
+
+        <h3>Change the Network Name (SSID)</h3>
+        <p>The default network name often includes the router's brand or model number (like "NETGEAR-5G" or "Linksys02847"). This tells anyone nearby exactly what router you're using, which helps them look up known vulnerabilities. Change it to something that doesn't identify you personally or reveal your hardware.</p>
+
+        <h3>Use Strong Encryption</h3>
+        <p>In your router's wireless security settings, use WPA3 if your router supports it. If not, use WPA2 (also called WPA2-PSK or WPA2-Personal). Never use WEP — it was cracked years ago and provides essentially no protection. If your router only supports WEP, it's time for a new router.</p>
+
+        <h3>Set Up a Guest Network</h3>
+        <p>Most modern routers support creating a separate guest network. Use it for visitors and for smart home devices (smart speakers, security cameras, smart TVs). A guest network is isolated from your main network, which means a compromised smart device can't be used as a stepping stone to access your computer or phone.</p>
+
+        <h3>Update Router Firmware</h3>
+        <p>Routers receive security updates just like computers and phones — but they don't always update automatically. Check your router's admin page every few months for firmware updates. Some newer routers (like Google Wifi or Eero) handle this automatically, but most traditional routers don't.</p>
+
+        <div class="threat-panel">
+          <div class="threat-panel__bar">
+            <span class="threat-panel__dot"></span>
+            <span class="threat-panel__dot"></span>
+            <span class="threat-panel__dot"></span>
+            <span class="threat-panel__label">router-security-audit.log</span>
+          </div>
+          <div class="threat-panel__body">
+            <div class="threat-line threat-line--high"><span class="threat-tag">[VULN]</span> Default admin password: admin/admin — CHANGE IMMEDIATELY</div>
+            <div class="threat-line threat-line--high"><span class="threat-tag">[VULN]</span> Encryption: WEP — UPGRADE TO WPA2/WPA3</div>
+            <div class="threat-line threat-line--med"><span class="threat-tag">[WARN]</span> SSID broadcasts router model — change name</div>
+            <div class="threat-line threat-line--med"><span class="threat-tag">[WARN]</span> No guest network configured — smart devices on main network</div>
+            <div class="threat-line threat-line--low"><span class="threat-tag">[NOTE]</span> Firmware last updated: unknown — check for updates</div>
+            <div class="threat-line">&nbsp;</div>
+            <div class="threat-line threat-status"><span class="threat-tag threat-tag--ok">[FIX]</span> &nbsp;All of these can be fixed in your router's settings page.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 5: Public WiFi: The Risks -->
+      <div class="fade-in">
+        <h2>Public WiFi: The Risks</h2>
+        <p>Coffee shops, airports, hotels, libraries — public WiFi is everywhere, and it's convenient. But public networks come with real risks. When you connect to a shared network, other people on that network can potentially see your traffic, intercept data you send, or set up fake networks designed to steal your information.</p>
+
+        <h3>What Can Go Wrong</h3>
+        <p>On an unprotected public network, an attacker can perform what's called a "man-in-the-middle" attack — positioning themselves between your device and the WiFi router to intercept the data passing between them. If you're logging into a website that doesn't use encryption (HTTPS), they can capture your username and password in plain text. Attackers can also create fake networks with names like "Starbucks_Free_WiFi" to trick people into connecting.</p>
+
+        <h3>How to Stay Safe</h3>
+        <ul>
+          <li><strong>Never access banking, investment accounts, or enter passwords</strong> on public WiFi without a VPN. A VPN encrypts all your traffic so even if someone intercepts it, they can't read it</li>
+          <li><strong>Use your phone's mobile hotspot instead</strong> when possible — your cellular data connection is significantly more secure than public WiFi</li>
+          <li><strong>Check for HTTPS</strong> on every website — look for the lock icon in your browser's address bar. HTTPS means the connection between your browser and that specific website is encrypted. Never enter sensitive information on a site without it</li>
+          <li><strong>"Forget" public networks after use</strong> — go into your WiFi settings and remove saved public networks so your device doesn't automatically reconnect to them (or to fake networks using the same name) later</li>
+          <li><strong>Turn off auto-connect</strong> — configure your device to ask before joining known networks, especially on laptops</li>
+          <li><strong>Disable file sharing</strong> when on public networks — on Windows, choose "Public network" when prompted. On Mac, turn off AirDrop or set it to "Contacts Only"</li>
+        </ul>
+
+        <div class="tip-box">
+          <div class="tip-box__label">Quick Rule</div>
+          <div class="tip-box__content">If you're on public WiFi and you wouldn't be comfortable shouting the information across the room, don't type it into your device without a VPN. Public WiFi without encryption is roughly equivalent to having a conversation in a crowded room — anyone nearby can listen.</div>
+        </div>
+      </div>
+
+      <!-- Section 6: Backups: Your Safety Net -->
+      <div class="fade-in">
+        <h2>Backups: Your Safety Net</h2>
+        <p>Ransomware attacks lock you out of your own files and demand payment — often thousands of dollars — for the key to unlock them. Hard drives fail without warning. Phones get lost or broken. Laptops get stolen. The only reliable protection against all of these scenarios is having a current backup of your data.</p>
+
+        <h3>The 3-2-1 Rule</h3>
+        <p>The gold standard for backups is the 3-2-1 rule: keep <strong>3 copies</strong> of your data, on <strong>2 different types</strong> of storage, with <strong>1 copy offsite</strong>. This sounds complicated, but it's actually straightforward:</p>
+        <ul>
+          <li><strong>Copy 1:</strong> Your original files on your computer or phone</li>
+          <li><strong>Copy 2:</strong> An external hard drive or USB drive that you back up to regularly (this is your second type of storage)</li>
+          <li><strong>Copy 3:</strong> A cloud backup service — iCloud, Google One, OneDrive, or Backblaze (this is your offsite copy)</li>
+        </ul>
+
+        <h3>Cloud Backup</h3>
+        <p>Cloud backup is the easiest way to keep an offsite copy of your data. Most phone and computer platforms offer integrated cloud backup:</p>
+        <ul>
+          <li><strong>iPhone:</strong> Settings → [your name] → iCloud → iCloud Backup → turn on</li>
+          <li><strong>Android:</strong> Settings → System → Backup → Back up to Google One</li>
+          <li><strong>Windows:</strong> Settings → Accounts → Windows Backup, or use OneDrive for file-level backup</li>
+          <li><strong>Mac:</strong> System Settings → [your name] → iCloud → iCloud Drive, and use Time Machine with an external drive for full system backup</li>
+        </ul>
+
+        <h3>Local Backup</h3>
+        <p>An external hard drive provides a fast, local backup that doesn't depend on internet access. A 1TB external drive costs roughly $50 and can store years of documents and photos. Plug it in, set up automatic backup, and store it somewhere safe. On Mac, Time Machine makes this almost effortless. On Windows, use File History or the built-in Backup feature.</p>
+
+        <h3>Test Your Backups</h3>
+        <p>A backup you've never tested is a backup you can't trust. Periodically verify that your backups are running, check that recent files are included, and try restoring a file to make sure the process works. The worst time to discover your backup system is broken is the moment you need it.</p>
+
+        <div class="threat-panel">
+          <div class="threat-panel__bar">
+            <span class="threat-panel__dot"></span>
+            <span class="threat-panel__dot"></span>
+            <span class="threat-panel__dot"></span>
+            <span class="threat-panel__label">backup-status.log</span>
+          </div>
+          <div class="threat-panel__body">
+            <div class="threat-line threat-line--high"><span class="threat-tag">[RISK]</span> &nbsp;No backup = one hardware failure from losing everything</div>
+            <div class="threat-line threat-line--high"><span class="threat-tag">[RISK]</span> &nbsp;Ransomware can encrypt ALL connected drives</div>
+            <div class="threat-line threat-line--low"><span class="threat-tag">[SAFE]</span> &nbsp;Cloud backup = ransomware can't reach it</div>
+            <div class="threat-line threat-line--low"><span class="threat-tag">[SAFE]</span> &nbsp;3-2-1 rule = protected against any single failure</div>
+            <div class="threat-line">&nbsp;</div>
+            <div class="threat-line threat-status"><span class="threat-tag threat-tag--ok">[INFO]</span> &nbsp;Backups are the only defense that works after an attack.</div>
+          </div>
+        </div>
+
+        <div class="tip-box">
+          <div class="tip-box__label">Ransomware Can't Hold You Hostage</div>
+          <div class="tip-box__content">If you have a current backup, a ransomware attack is an inconvenience — not a catastrophe. You can wipe your device, restore from backup, and move on without paying a cent. Without a backup, you're facing the choice between losing everything or paying criminals with no guarantee they'll actually give your files back.</div>
+        </div>
+      </div>
+
+      <!-- Action Checklist -->
+      <div class="fade-in">
+        <div class="action-checklist">
+          <h2 class="action-checklist__title">What to Do Right Now</h2>
+          <ol>
+            <li><strong>Turn on automatic updates</strong> on your phone, computer, browser, and apps. Do this first — it's the single most effective security step you can take.</li>
+            <li><strong>Review your phone's app permissions.</strong> Go to Settings → Privacy and check which apps have access to your location, camera, microphone, and contacts. Revoke anything that doesn't make sense.</li>
+            <li><strong>Change your router's default password.</strong> Open 192.168.1.1 or 192.168.0.1 in your browser, log in with the default credentials (check the sticker on your router), and set a strong, unique admin password.</li>
+            <li><strong>Enable Find My Device</strong> on your phone so you can locate, lock, or erase it remotely if it's lost or stolen.</li>
+            <li><strong>Set up automatic cloud backup</strong> — iCloud Backup for iPhone, Google One for Android, or OneDrive/iCloud for your computer. This takes 2 minutes and protects years of data.</li>
+            <li><strong>Check that your computer's firewall is on.</strong> Windows: Settings → Windows Security → Firewall. Mac: System Settings → Network → Firewall.</li>
+            <li><strong>Verify your WiFi encryption.</strong> Log into your router and confirm you're using WPA2 or WPA3 — not WEP or no encryption.</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Module Navigation -->
+      <nav class="module-nav fade-in" aria-label="Module navigation">
+        <a href="scams.html">← Module 03: Online Scams</a>
+        <a href="privacy.html">Module 05: Privacy Basics →</a>
+      </nav>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__left">
+        <a href="../index.html" class="footer__logo" aria-label="Cyber for Everyone — Home">
+          <svg class="footer__logo-mark" viewBox="0 0 32 36" fill="none" aria-hidden="true">
+            <path d="M16 2L29 7.5V19C29 25.5 23.5 31 16 34C8.5 31 3 25.5 3 19V7.5L16 2Z" stroke="currentColor" stroke-width="1.2"/>
+            <circle cx="16" cy="18" r="2.5" stroke="currentColor" stroke-width="1" fill="none"/>
+            <circle cx="16" cy="18" r="0.8" fill="currentColor"/>
+          </svg>
+          <span class="footer__logo-text">Cyber for Everyone</span>
+        </a>
+        <p class="footer__tagline">Free cybersecurity education for every community.</p>
+      </div>
+      <div class="footer__right">
+        <div class="footer__copy">&copy; <span id="year"></span> Cyber for Everyone. All rights reserved.</div>
+        <div class="footer__links">
+          <a href="mailto:cyberforeveryone@pm.me">Contact</a>
+          <a href="../index.html#curriculum">Curriculum</a>
+          <a href="../index.html#get-involved">Volunteer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme toggle
+    (function () {
+      const t = document.querySelector('[data-theme-toggle]');
+      const r = document.documentElement;
+      let d = r.getAttribute('data-theme') || 'dark';
+
+      function setIcon() {
+        if (!t) return;
+        t.innerHTML = d === 'dark'
+          ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+          : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+        t.setAttribute('aria-label', 'Switch to ' + (d === 'dark' ? 'light' : 'dark') + ' mode');
+      }
+
+      setIcon();
+      t && t.addEventListener('click', () => {
+        d = d === 'dark' ? 'light' : 'dark';
+        r.setAttribute('data-theme', d);
+        setIcon();
+      });
+    })();
+
+    // Mobile nav
+    (function () {
+      const btn = document.getElementById('mobile-toggle');
+      const nav = document.getElementById('main-nav');
+      btn && btn.addEventListener('click', () => {
+        const open = nav.classList.toggle('active');
+        btn.setAttribute('aria-expanded', open);
+      });
+      nav && nav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          nav.classList.remove('active');
+          btn && btn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+
+    // Scroll fade-in
+    (function () {
+      const els = document.querySelectorAll('.fade-in');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(el => el.classList.add('visible'));
+        return;
+      }
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(el => obs.observe(el));
+    })();
+
+    // Header scroll state
+    (function () {
+      const header = document.getElementById('header');
+      window.addEventListener('scroll', () => {
+        header.classList.toggle('header--scrolled', window.scrollY > 20);
+      }, { passive: true });
+    })();
+  </script>
+
+</body>
+</html>

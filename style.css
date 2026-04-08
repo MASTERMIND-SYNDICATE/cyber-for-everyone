@@ -622,6 +622,30 @@ section {
   line-height: 1.65;
 }
 
+a.curriculum-cell {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.curriculum-cell__cta {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--accent);
+  letter-spacing: 0.03em;
+  margin-top: auto;
+  padding-top: var(--space-4);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+.curriculum-cell:hover .curriculum-cell__cta {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 /* ============================================================
    GET INVOLVED
    ============================================================ */

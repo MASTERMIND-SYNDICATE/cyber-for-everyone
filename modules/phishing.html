@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Module 01: Phishing Awareness — Cyber for Everyone</title>
+  <meta name="description" content="Learn how to spot deceptive emails, texts, and websites designed to steal your personal information. Free cybersecurity education from Cyber for Everyone.">
+
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600&f[]=satoshi@400,500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../style.css">
+
+  <script>
+    (function(){
+      var d = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', d);
+    })();
+  </script>
+
+  <style>
+    .module-hero { padding-top: clamp(var(--space-16), 10vw, var(--space-24)); padding-bottom: clamp(var(--space-8), 4vw, var(--space-12)); }
+    .module-hero__num { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-tertiary); letter-spacing: 0.08em; margin-bottom: var(--space-4); }
+    .module-hero__title { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 600; color: var(--text-primary); letter-spacing: -0.02em; margin-bottom: var(--space-4); }
+    .module-hero__desc { font-size: var(--text-base); color: var(--text-secondary); max-width: 560px; line-height: 1.7; }
+    .module-content { padding-bottom: clamp(var(--space-16), 7vw, var(--space-24)); }
+    .module-content h2 { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-4); letter-spacing: -0.015em; }
+    .module-content h3 { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 500; color: var(--text-primary); margin-bottom: var(--space-3); margin-top: var(--space-8); }
+    .module-content p { font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-4); max-width: 680px; }
+    .module-content ul, .module-content ol { padding-left: var(--space-6); margin-bottom: var(--space-4); }
+    .module-content li { font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-2); }
+    .module-content li::marker { color: var(--accent); }
+    .tip-box { border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: var(--space-6); background: var(--bg-card); margin-block: var(--space-6); }
+    .tip-box__label { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--accent); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: var(--space-3); }
+    .tip-box__content { font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.7; }
+    .action-checklist { border: 1px solid var(--accent); border-radius: var(--radius-lg); padding: var(--space-8); background: var(--accent-dim); margin-block: var(--space-8); }
+    .action-checklist__title { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-4); }
+    .action-checklist li { font-size: var(--text-sm); color: var(--text-primary); line-height: 1.7; margin-bottom: var(--space-3); }
+    .module-nav { display: flex; justify-content: space-between; padding-block: var(--space-8); border-top: 1px solid var(--border-subtle); margin-top: var(--space-12); }
+    .module-nav a { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--accent); text-decoration: none; letter-spacing: 0.03em; transition: opacity var(--transition); }
+    .module-nav a:hover { opacity: 0.7; }
+    .example-email { /* uses existing threat-panel styles */ }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="../index.html" class="header__logo" aria-label="Cyber for Everyone — Home">
+        <svg class="header__logo-mark" viewBox="0 0 32 36" fill="none" aria-hidden="true">
+          <path d="M16 2L29 7.5V19C29 25.5 23.5 31 16 34C8.5 31 3 25.5 3 19V7.5L16 2Z" stroke="currentColor" stroke-width="1.2"/>
+          <line x1="10" y1="13" x2="22" y2="13" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+          <line x1="10" y1="18" x2="22" y2="18" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+          <line x1="10" y1="23" x2="22" y2="23" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+          <line x1="13" y1="10" x2="13" y2="26" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+          <line x1="19" y1="10" x2="19" y2="26" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+          <circle cx="16" cy="18" r="2.5" stroke="currentColor" stroke-width="1" fill="none"/>
+          <circle cx="16" cy="18" r="0.8" fill="currentColor"/>
+        </svg>
+        <span class="header__logo-text">Cyber for<br>Everyone</span>
+      </a>
+
+      <nav class="header__nav" id="main-nav" aria-label="Main navigation">
+        <a href="../index.html#mission">Mission</a>
+        <a href="../index.html#curriculum">Curriculum</a>
+        <a href="../index.html#get-involved">Get Involved</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+        </button>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 12h18M3 6h18M3 18h18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MODULE HERO -->
+  <section class="module-hero" aria-labelledby="module-title">
+    <div class="container">
+      <p class="module-hero__num">// module 01</p>
+      <h1 class="module-hero__title" id="module-title">Phishing Awareness</h1>
+      <p class="module-hero__desc">How to spot deceptive emails, texts, and websites designed to steal your personal information.</p>
+    </div>
+  </section>
+
+  <!-- MODULE CONTENT -->
+  <section class="module-content">
+    <div class="container">
+
+      <!-- SECTION 1: What Is Phishing? -->
+      <div class="fade-in">
+        <p class="section-label">Understanding the threat</p>
+        <h2>What Is Phishing?</h2>
+
+        <p>Phishing is a type of online deception where an attacker pretends to be someone you trust — your bank, your employer, a shipping company, the government — in order to trick you into handing over sensitive information like passwords, credit card numbers, or your Social Security number. Despite the name sounding technical, phishing is really just a confidence trick carried out through digital channels. There is no sophisticated hacking involved. The attacker's only tool is your trust.</p>
+
+        <p>Think of it this way: imagine someone slipped a fake letter into your mailbox that looked exactly like an official notice from your bank. The letterhead is right, the tone sounds professional, and it says there's a problem with your account that needs immediate attention. It asks you to call a phone number and verify your account details. If you called, you would be speaking to a scammer — not your bank. That is phishing, except it happens through email, text messages, phone calls, and fake websites instead of paper letters.</p>
+
+        <p>Phishing works because it exploits basic human psychology, not technical weaknesses. Attackers rely on three emotions: <strong>urgency</strong> (act now or something bad will happen), <strong>trust</strong> (this message appears to come from a legitimate source), and <strong>fear</strong> (your account has been compromised, your package can't be delivered, your tax refund is on hold). When you are in a hurry or worried, you are far less likely to slow down and examine whether a message is legitimate. That is exactly what the attacker is counting on.</p>
+
+        <p>Phishing is not a niche problem. According to the FBI's Internet Crime Complaint Center, phishing is consistently the number one type of cybercrime reported each year, with hundreds of thousands of complaints filed annually. It is the starting point for the vast majority of data breaches, ransomware infections, and identity theft cases. If an attacker wants to break into a company, they almost never start by trying to hack a firewall — they start by sending a convincing phishing email to an employee.</p>
+
+        <p>The reason phishing is so effective is that the messages are getting better every year. Early phishing emails were easy to spot: broken English, absurd claims, obviously fake logos. Modern phishing emails can be nearly indistinguishable from real messages. Attackers research their targets, copy exact email templates from real companies, register lookalike domain names, and even personalize messages with your real name and recent activity. Some use AI tools to generate flawless, professional-sounding text.</p>
+
+        <p>The good news is that phishing has patterns. Once you learn to recognize the common tactics, you can spot the vast majority of phishing attempts before they do any damage. That is exactly what this module will teach you — the specific red flags to look for, the questions to ask yourself, and the habits to build so you never fall for a phishing attack.</p>
+      </div>
+
+      <hr class="divider" style="margin-block: clamp(var(--space-10), 4vw, var(--space-16));">
+
+      <!-- SECTION 2: How to Spot a Phishing Email -->
+      <div class="fade-in">
+        <p class="section-label">Red flags</p>
+        <h2>How to Spot a Phishing Email</h2>
+
+        <p>The best way to understand phishing is to see it in action. Below is an example of a phishing email. Read through it, and then we will break down every red flag.</p>
+
+        <!-- Fake phishing email example -->
+        <div class="threat-panel example-email" style="margin-block: var(--space-6); max-width: 680px;">
+          <div class="threat-panel__bar">
+            <span class="threat-panel__dot"></span>
+            <span class="threat-panel__dot"></span>
+            <span class="threat-panel__dot"></span>
+            <span class="threat-panel__label">phishing-example.eml</span>
+          </div>
+          <div class="threat-panel__body" style="line-height: 1.9;">
+            <div class="threat-line"><span class="threat-tag" style="color: var(--text-tertiary);">From:</span> &nbsp;Chase Bank &lt;security@chase-alerts-verify.com&gt;</div>
+            <div class="threat-line"><span class="threat-tag" style="color: var(--text-tertiary);">To:</span> &nbsp;you@email.com</div>
+            <div class="threat-line"><span class="threat-tag" style="color: var(--text-tertiary);">Subject:</span> &nbsp;⚠️ Urgent: Unusual Activity on Your Account</div>
+            <div class="threat-line">&nbsp;</div>
+            <div class="threat-line" style="color: var(--text-secondary);">Dear Customer,</div>
+            <div class="threat-line">&nbsp;</div>
+            <div class="threat-line" style="color: var(--text-secondary);">We have detected unusual activity on your Chase</div>
+            <div class="threat-line" style="color: var(--text-secondary);">account. For your saftey, your account has been</div>
+            <div class="threat-line" style="color: var(--text-secondary);">temporarily limited. Please verify your identity</div>
+            <div class="threat-line" style="color: var(--text-secondary);">within 24 hours to restore full access.</div>
+            <div class="threat-line">&nbsp;</div>
+            <div class="threat-line" style="color: var(--accent);">→ Click here to verify: chase-secure-login.com/verify</div>
+            <div class="threat-line">&nbsp;</div>
+            <div class="threat-line" style="color: var(--text-secondary);">If you do not verify within 24 hours, your</div>
+            <div class="threat-line" style="color: var(--text-secondary);">account will be permanently suspended.</div>
+            <div class="threat-line">&nbsp;</div>
+            <div class="threat-line" style="color: var(--text-secondary);">Thank you,</div>
+            <div class="threat-line" style="color: var(--text-secondary);">Chase Security Team</div>
+          </div>
+        </div>
+
+        <p>This email looks alarming at first glance. But every element has been carefully crafted to manipulate you. Let's break down the red flags one by one:</p>
+
+        <h3>1. Check the sender's actual email address</h3>
+        <p>The display name says "Chase Bank," but the actual email address is <strong>security@chase-alerts-verify.com</strong>. That is not a Chase domain. The real Chase domain is chase.com. Attackers register domains that <em>look</em> related — like "chase-alerts-verify.com" or "chase-security.net" — but they are completely separate websites controlled by the attacker. Always look at the full email address, not just the name that appears in bold. On a phone, you may need to tap the sender's name to reveal the full address.</p>
+
+        <h3>2. Look for generic greetings</h3>
+        <p>The email says "Dear Customer" instead of using your actual name. Your real bank knows your name and will almost always use it. A generic greeting like "Dear Customer," "Dear Account Holder," or "Dear User" is a strong indicator that this email was sent to thousands of people at once, not specifically to you. Some sophisticated phishing attacks do include your name — which they can get from data breaches or social media — but a generic greeting is always a warning sign.</p>
+
+        <h3>3. Urgency and threats</h3>
+        <p>"Your account will be permanently suspended" if you don't act within 24 hours. This is a textbook pressure tactic. The goal is to make you panic and click before you think. Real banks do send alerts about suspicious activity, but they will never threaten to permanently close your account if you don't click a link within a day. If you are ever worried about your account, do not click the link — instead, open a new browser tab and go directly to your bank's website, or call the number on the back of your card.</p>
+
+        <h3>4. Spelling and grammar errors</h3>
+        <p>Look closely: the email says "saftey" instead of "safety." While modern phishing emails are getting better, many still contain subtle spelling mistakes, awkward phrasing, or unusual formatting. Legitimate companies have teams of copywriters and quality assurance processes. A misspelling in an official security alert is a red flag. That said, do not rely on this alone — some phishing emails are grammatically perfect.</p>
+
+        <h3>5. Suspicious links</h3>
+        <p>The link in the email points to "chase-secure-login.com/verify." That is not chase.com. Before clicking any link in an email, hover your mouse over it (or long-press on a phone) to preview the actual URL. The real destination is often completely different from what the link text says. If the domain does not exactly match the company's official website, do not click it. Even one extra word or hyphen in the domain means it is a different website entirely.</p>
+
+        <h3>6. Unexpected attachments</h3>
+        <p>While this example does not include an attachment, many phishing emails do. They might attach a "receipt," "invoice," "shipping label," or "document to review." These attachments can contain malware that installs itself on your computer when you open them. If you were not expecting an attachment, do not open it — even if it appears to come from someone you know. Their account may have been compromised.</p>
+
+        <h3>7. Requests for personal information</h3>
+        <p>No legitimate company will ever ask you to verify your password, Social Security number, PIN, or full credit card number by email or text. If a message asks you to "confirm" or "verify" this type of information through a link, it is almost certainly phishing. Your bank already has your information — they do not need you to send it again over email.</p>
+
+        <div class="tip-box">
+          <div class="tip-box__label">Quick rule</div>
+          <div class="tip-box__content">When in doubt, do not click. Go directly to the company's website by typing the address into your browser, or call them using a phone number you find independently — never use a number provided in the suspicious message itself.</div>
+        </div>
+      </div>
+
+      <hr class="divider" style="margin-block: clamp(var(--space-10), 4vw, var(--space-16));">
+
+      <!-- SECTION 3: Beyond Email -->
+      <div class="fade-in">
+        <p class="section-label">Other channels</p>
+        <h2>Beyond Email: Smishing and Vishing</h2>
+
+        <p>Phishing is not limited to email. Attackers use every communication channel available to them, and two of the most common alternatives are text messages and phone calls. These methods can be even more effective than email because people tend to trust their phones more than their inboxes.</p>
+
+        <h3>Smishing: Text Message Phishing</h3>
+
+        <p><strong>Smishing</strong> (SMS + phishing) is when attackers send deceptive text messages to your phone. These messages typically impersonate delivery companies, banks, or government agencies and include a link that leads to a fake website. Because text messages are short and we read them quickly, smishing can be harder to spot than email phishing.</p>
+
+        <p>Common smishing examples include messages like: "USPS: Your package could not be delivered. Schedule redelivery here: [link]" or "Wells Fargo Alert: Unusual sign-in detected. Verify your account: [link]" or "IRS: You are eligible for a $1,200 stimulus payment. Claim now: [link]." These messages work because they reference things you might actually be waiting for — a package, a bank alert, a tax refund. The links lead to fake websites that look identical to the real ones, where they collect your login credentials or personal information.</p>
+
+        <p>A particularly effective smishing tactic involves fake two-factor authentication codes. You receive a text that says something like "Your verification code is 847291. If you did not request this code, click here to secure your account." The attacker is actually trying to log into your account and needs you to hand over the real code — or to click the link and enter your credentials on a fake site. Never click links in text messages about security codes you did not request.</p>
+
+        <h3>Vishing: Phone Call Phishing</h3>
+
+        <p><strong>Vishing</strong> (voice + phishing) uses phone calls instead of written messages. The caller pretends to be from a trusted organization — the IRS, your bank's fraud department, Microsoft tech support, or even local law enforcement. Using caller ID spoofing, they can make it appear that the call is coming from a legitimate phone number, which makes the deception even more convincing.</p>
+
+        <p>One of the most common vishing scams is the "IRS phone call." The caller claims to be an IRS agent, says you owe back taxes, and threatens immediate arrest or legal action unless you pay immediately — often by gift card, wire transfer, or cryptocurrency. The real IRS will <strong>never</strong> call you to demand immediate payment, threaten you with arrest, or ask for payment by gift card. They communicate primarily through postal mail.</p>
+
+        <p>Tech support scams are equally common. You receive a call (or a pop-up on your computer) claiming that your device has been infected with a virus. The "technician" asks you to grant remote access to your computer so they can "fix" the problem. Once they have access, they can install malware, steal files, or lock you out of your own machine and demand payment. Microsoft, Apple, and Google will never call you unsolicited about a virus on your computer.</p>
+
+        <p>Bank impersonation vishing is particularly dangerous. The caller says they are from your bank's fraud department and that there has been suspicious activity on your account. They ask you to "verify" your identity by providing your account number, PIN, or the one-time security code that was just texted to you. In reality, the attacker is trying to access your account in real time and needs those details to complete the login. If you ever receive a call like this, hang up and call your bank directly using the number on your card or statement.</p>
+
+        <div class="tip-box">
+          <div class="tip-box__label">Key difference</div>
+          <div class="tip-box__content">With smishing and vishing, the pressure to act quickly is even stronger because phone interactions feel more personal and immediate than email. The same rules apply: never give out personal information in response to an unsolicited contact, and always verify by reaching out to the organization directly through a channel you trust.</div>
+        </div>
+      </div>
+
+      <hr class="divider" style="margin-block: clamp(var(--space-10), 4vw, var(--space-16));">
+
+      <!-- SECTION 4: What Happens If You Click? -->
+      <div class="fade-in">
+        <p class="section-label">Consequences</p>
+        <h2>What Happens If You Click?</h2>
+
+        <p>Understanding what actually happens after a successful phishing attack helps you see why prevention matters. This is not about fear — it is about knowing the real, concrete chain of events so you can appreciate why a few seconds of caution can save you weeks or months of recovery.</p>
+
+        <h3>Credential theft</h3>
+        <p>The most common outcome of clicking a phishing link is landing on a fake website that looks identical to a real login page. When you enter your username and password, that information goes directly to the attacker. They now have your credentials. If you use the same password on other accounts — which most people do — the attacker will try those credentials on every major service: your email, bank, social media, Amazon, PayPal, and more. This is called <strong>credential stuffing</strong>, and it often happens within minutes of the initial theft, frequently through automated tools that can test hundreds of sites simultaneously.</p>
+
+        <h3>Malware installation</h3>
+        <p>Some phishing links do not lead to fake login pages. Instead, they trigger a download — a file that installs malicious software on your device. This malware can take many forms: a keylogger that records every keystroke you make (capturing passwords, messages, and credit card numbers as you type them), ransomware that encrypts all your files and demands payment to unlock them, or spyware that silently monitors your activity and sends data back to the attacker. In many cases, you will not notice anything unusual at first. The malware operates quietly in the background.</p>
+
+        <h3>The identity theft chain reaction</h3>
+        <p>Once an attacker has access to your email account, the damage can cascade rapidly. Your email is the master key to your digital life because it is how you reset passwords for every other account. With email access, an attacker can reset your banking passwords, change recovery information so you cannot regain control, send phishing emails to your contacts (who will be more likely to trust messages that appear to come from you), access tax documents and file fraudulent returns in your name, open new credit cards or loans using your personal information, and redirect important correspondence so you do not notice what is happening.</p>
+
+        <p>This chain reaction can unfold in hours. A single compromised email account can lead to drained bank accounts, fraudulent credit lines, a destroyed credit score, and months of paperwork to undo the damage. The average victim of identity theft in the United States spends over 200 hours resolving the issue, and the financial impact can linger for years.</p>
+
+        <p>The point is not to terrify you. It is to illustrate that a phishing email is not just an annoyance you can ignore — it is the first step in a chain of events that can have serious, lasting consequences. The good news: the entire chain breaks if you simply do not click the link or enter your credentials. That is why awareness is so powerful.</p>
+      </div>
+
+      <hr class="divider" style="margin-block: clamp(var(--space-10), 4vw, var(--space-16));">
+
+      <!-- SECTION 5: What to Do If You've Been Phished -->
+      <div class="fade-in">
+        <p class="section-label">Recovery</p>
+        <h2>What to Do If You've Been Phished</h2>
+
+        <p>If you think you have fallen for a phishing attack — you clicked a link and entered your credentials, opened a suspicious attachment, or gave information to someone on the phone — do not panic. The faster you act, the more damage you can prevent. Here is exactly what to do, step by step:</p>
+
+        <h3>1. Change your passwords immediately</h3>
+        <p>Start with the account that was directly compromised. If you entered your email password on a fake site, change your email password right now. Then change the password for any other account that uses the same or a similar password. Use a different device if possible — if you opened a malicious attachment, your current device may be compromised.</p>
+
+        <h3>2. Enable multi-factor authentication (MFA)</h3>
+        <p>If you have not already enabled MFA on your accounts, do it now — especially on your email and banking accounts. MFA adds a second layer of protection so that even if someone has your password, they cannot access your account without also having your phone or authentication device. We cover this in detail in Module 02.</p>
+
+        <h3>3. Check your bank and credit card statements</h3>
+        <p>Look for any transactions you do not recognize. Even small charges can be a sign — attackers sometimes make small test purchases before attempting larger ones. If you see anything suspicious, contact your bank immediately. Most banks have 24/7 fraud hotlines and will freeze your card while they investigate.</p>
+
+        <h3>4. Report the incident</h3>
+        <p>If this happened at work, contact your IT or security team immediately — even if you are embarrassed. They need to know so they can prevent the attack from spreading to others. If it happened on a personal account, report the phishing attempt to the organization that was impersonated (most companies have a dedicated phishing report email, like phishing@chase.com or reportphish@apple.com).</p>
+
+        <h3>5. File a report with the FTC</h3>
+        <p>In the United States, report online fraud at <strong>reportfraud.ftc.gov</strong>. If you believe your identity has been stolen, go to <strong>identitytheft.gov</strong> — this is a free government resource that will walk you through a personalized recovery plan, help you dispute fraudulent charges, and provide pre-written letters to send to companies and credit bureaus.</p>
+
+        <h3>6. Place a fraud alert or credit freeze</h3>
+        <p>Contact one of the three major credit bureaus (Equifax, Experian, or TransUnion) to place a fraud alert on your credit report, which makes it harder for someone to open new accounts in your name. For stronger protection, you can request a credit freeze, which blocks new credit applications entirely until you lift it. Both are free.</p>
+
+        <p>Recovery from a phishing attack is very possible, especially when you act quickly. The most important thing is to not let embarrassment stop you from seeking help. Phishing works on millions of people every year, including security professionals. The moment you realize something is wrong, you have the power to limit the damage.</p>
+      </div>
+
+      <hr class="divider" style="margin-block: clamp(var(--space-10), 4vw, var(--space-16));">
+
+      <!-- SECTION 6: Action Checklist -->
+      <div class="fade-in">
+        <p class="section-label">Take action</p>
+        <h2>What to Do Right Now</h2>
+
+        <p>You do not need to become a cybersecurity expert to protect yourself from phishing. These seven actions take less than 30 minutes total and will make you dramatically harder to fool:</p>
+
+        <div class="action-checklist">
+          <div class="action-checklist__title">Your phishing defense checklist</div>
+          <ol>
+            <li><strong>Check your email settings.</strong> Open your email app and find where it shows the full sender address (not just the display name). Practice expanding the sender details on a few recent emails so it becomes second nature.</li>
+            <li><strong>Practice hovering over links.</strong> Before clicking any link in an email, hover your mouse over it to preview the destination URL. On a phone, long-press the link instead. Do this right now on a few emails in your inbox to build the habit.</li>
+            <li><strong>Set up a phone rule.</strong> Make it a personal policy: if anyone calls you claiming to be from a bank, government agency, or tech company, hang up and call the organization back using a number from their official website or your account statement. Write this rule on a sticky note and place it near your phone.</li>
+            <li><strong>Enable multi-factor authentication on your email account.</strong> Your email is the master key to every other account. Protecting it with MFA is the single highest-impact security step you can take. See Module 02 for a step-by-step guide.</li>
+            <li><strong>Report your first phishing email.</strong> Next time you receive a suspicious email, report it. In Gmail, click the three dots and select "Report phishing." In Outlook, right-click and select "Report" then "Phishing." This helps email providers block the attacker.</li>
+            <li><strong>Bookmark the real login pages for your bank and important accounts.</strong> Instead of clicking links in emails, always use your bookmarks to access sensitive sites. This eliminates the risk of landing on a fake page.</li>
+            <li><strong>Share this module with one person.</strong> The most common victims of phishing are people who have never been told what to look for. Send this page to a family member, friend, or coworker. Knowledge spreads the same way phishing does — one person at a time.</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- MODULE NAV -->
+      <nav class="module-nav" aria-label="Module navigation">
+        <a href="../index.html#curriculum">← Back to Curriculum</a>
+        <a href="passwords.html">Module 02: Passwords &amp; MFA →</a>
+      </nav>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__left">
+        <a href="../index.html" class="footer__logo" aria-label="Cyber for Everyone — Home">
+          <svg class="footer__logo-mark" viewBox="0 0 32 36" fill="none" aria-hidden="true">
+            <path d="M16 2L29 7.5V19C29 25.5 23.5 31 16 34C8.5 31 3 25.5 3 19V7.5L16 2Z" stroke="currentColor" stroke-width="1.2"/>
+            <circle cx="16" cy="18" r="2.5" stroke="currentColor" stroke-width="1" fill="none"/>
+            <circle cx="16" cy="18" r="0.8" fill="currentColor"/>
+          </svg>
+          <span class="footer__logo-text">Cyber for Everyone</span>
+        </a>
+        <p class="footer__tagline">Free cybersecurity education for every community.</p>
+      </div>
+      <div class="footer__right">
+        <div class="footer__copy">&copy; <span id="year"></span> Cyber for Everyone. All rights reserved.</div>
+        <div class="footer__links">
+          <a href="mailto:cyberforeveryone@pm.me">Contact</a>
+          <a href="../index.html#curriculum">Curriculum</a>
+          <a href="../index.html#get-involved">Volunteer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme toggle
+    (function () {
+      const t = document.querySelector('[data-theme-toggle]');
+      const r = document.documentElement;
+      let d = r.getAttribute('data-theme') || 'dark';
+
+      function setIcon() {
+        if (!t) return;
+        t.innerHTML = d === 'dark'
+          ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+          : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+        t.setAttribute('aria-label', 'Switch to ' + (d === 'dark' ? 'light' : 'dark') + ' mode');
+      }
+
+      setIcon();
+      t && t.addEventListener('click', () => {
+        d = d === 'dark' ? 'light' : 'dark';
+        r.setAttribute('data-theme', d);
+        setIcon();
+      });
+    })();
+
+    // Mobile nav
+    (function () {
+      const btn = document.getElementById('mobile-toggle');
+      const nav = document.getElementById('main-nav');
+      btn && btn.addEventListener('click', () => {
+        const open = nav.classList.toggle('active');
+        btn.setAttribute('aria-expanded', open);
+      });
+      nav && nav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          nav.classList.remove('active');
+          btn && btn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+
+    // Scroll fade-in
+    (function () {
+      const els = document.querySelectorAll('.fade-in');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(el => el.classList.add('visible'));
+        return;
+      }
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(el => obs.observe(el));
+    })();
+
+    // Header scroll state
+    (function () {
+      const header = document.getElementById('header');
+      window.addEventListener('scroll', () => {
+        header.classList.toggle('header--scrolled', window.scrollY > 20);
+      }, { passive: true });
+    })();
+  </script>
+
+</body>
+</html>

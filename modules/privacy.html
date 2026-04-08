@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Module 05: Privacy Basics — Cyber for Everyone</title>
+  <meta name="description" content="Understanding what data apps and websites collect — and how to take back control without giving up the tools you use.">
+
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600&f[]=satoshi@400,500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../style.css">
+
+  <script>
+    (function(){
+      var d = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', d);
+    })();
+  </script>
+
+  <style>
+    .module-hero { padding-top: clamp(var(--space-16), 10vw, var(--space-24)); padding-bottom: clamp(var(--space-8), 4vw, var(--space-12)); }
+    .module-hero__num { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-tertiary); letter-spacing: 0.08em; margin-bottom: var(--space-4); }
+    .module-hero__title { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 600; color: var(--text-primary); letter-spacing: -0.02em; margin-bottom: var(--space-4); }
+    .module-hero__desc { font-size: var(--text-base); color: var(--text-secondary); max-width: 560px; line-height: 1.7; }
+    .module-content { padding-bottom: clamp(var(--space-16), 7vw, var(--space-24)); }
+    .module-content h2 { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-4); letter-spacing: -0.015em; }
+    .module-content h3 { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 500; color: var(--text-primary); margin-bottom: var(--space-3); margin-top: var(--space-8); }
+    .module-content p { font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-4); max-width: 680px; }
+    .module-content ul, .module-content ol { padding-left: var(--space-6); margin-bottom: var(--space-4); }
+    .module-content li { font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-2); }
+    .module-content li::marker { color: var(--accent); }
+    .tip-box { border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: var(--space-6); background: var(--bg-card); margin-block: var(--space-6); }
+    .tip-box__label { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--accent); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: var(--space-3); }
+    .tip-box__content { font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.7; }
+    .action-checklist { border: 1px solid var(--accent); border-radius: var(--radius-lg); padding: var(--space-8); background: var(--accent-dim); margin-block: var(--space-8); }
+    .action-checklist__title { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-4); }
+    .action-checklist li { font-size: var(--text-sm); color: var(--text-primary); line-height: 1.7; margin-bottom: var(--space-3); }
+    .module-nav { display: flex; justify-content: space-between; padding-block: var(--space-8); border-top: 1px solid var(--border-subtle); margin-top: var(--space-12); }
+    .module-nav a { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--accent); text-decoration: none; letter-spacing: 0.03em; transition: opacity var(--transition); }
+    .module-nav a:hover { opacity: 0.7; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="../index.html" class="header__logo" aria-label="Cyber for Everyone — Home">
+        <svg class="header__logo-mark" viewBox="0 0 32 36" fill="none" aria-hidden="true">
+          <path d="M16 2L29 7.5V19C29 25.5 23.5 31 16 34C8.5 31 3 25.5 3 19V7.5L16 2Z" stroke="currentColor" stroke-width="1.2"/>
+          <line x1="10" y1="13" x2="22" y2="13" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+          <line x1="10" y1="18" x2="22" y2="18" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+          <line x1="10" y1="23" x2="22" y2="23" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+          <line x1="13" y1="10" x2="13" y2="26" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+          <line x1="19" y1="10" x2="19" y2="26" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+          <circle cx="16" cy="18" r="2.5" stroke="currentColor" stroke-width="1" fill="none"/>
+          <circle cx="16" cy="18" r="0.8" fill="currentColor"/>
+        </svg>
+        <span class="header__logo-text">Cyber for<br>Everyone</span>
+      </a>
+
+      <nav class="header__nav" id="main-nav" aria-label="Main navigation">
+        <a href="../index.html#mission">Mission</a>
+        <a href="../index.html#curriculum">Curriculum</a>
+        <a href="../index.html#get-involved">Get Involved</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+        </button>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 12h18M3 6h18M3 18h18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MODULE HERO -->
+  <section class="module-hero" aria-labelledby="module-title">
+    <div class="container">
+      <p class="module-hero__num fade-in">Module 05</p>
+      <h1 class="module-hero__title fade-in" id="module-title">Privacy Basics</h1>
+      <p class="module-hero__desc fade-in">Understanding what data apps and websites collect — and how to take back control without giving up the tools you use.</p>
+    </div>
+  </section>
+
+  <!-- MODULE CONTENT -->
+  <section class="module-content">
+    <div class="container">
+
+      <!-- Section 1: What Are You Giving Away? -->
+      <div class="fade-in">
+        <h2>What Are You Giving Away?</h2>
+        <p>Every time you use an app, visit a website, or sign up for a service, you hand over a piece of your personal information. Sometimes you know it — like entering your name and email address. But most of the time, data collection happens invisibly, running in the background while you scroll, tap, and browse.</p>
+        <p>Here's what's being collected about you right now, often without you realizing it:</p>
+        <ul>
+          <li><strong>Location data.</strong> Your phone tracks everywhere you go via GPS — your commute, your doctor's office, your friend's house, your children's school. Apps like weather, maps, and social media request this constantly. Many keep a detailed log of your movements.</li>
+          <li><strong>Browsing history.</strong> Every website you visit, every search you type, every link you click — your browser and search engine record all of it. This data is used to build a profile of your interests, your health concerns, your finances, and your habits.</li>
+          <li><strong>Purchase history.</strong> Retailers, banks, and apps track what you buy, when you buy it, and how much you spend. This data is shared with advertisers and data brokers who compile it into a consumer profile.</li>
+          <li><strong>Contacts.</strong> Many apps request access to your phone's contact list. Once granted, they copy every name, number, and email address you've ever saved — including people who never agreed to share their information.</li>
+          <li><strong>Photos and camera.</strong> Apps that request camera access can potentially access your photo library. Your photos contain metadata (called EXIF data) that includes the exact GPS coordinates, date, and time each photo was taken.</li>
+          <li><strong>Messages and emails.</strong> Some services scan your messages to target ads. Even if they don't read the content, they analyze who you message, how often, and when.</li>
+          <li><strong>Voice recordings.</strong> Smart assistants like Siri, Alexa, and Google Assistant record audio when activated — and sometimes when you didn't intentionally trigger them. These recordings are sometimes reviewed by human contractors for "quality improvement."</li>
+        </ul>
+        <p>The average person has over 100 online accounts. Each one holds a piece of your digital identity. Combined, they paint a stunningly detailed picture of who you are — often more accurate than what you'd share with close friends or family.</p>
+
+        <div class="tip-box">
+          <div class="tip-box__label">Why does this matter?</div>
+          <div class="tip-box__content">When a company says their product is "free," you are the product. Your data is being sold to advertisers, data brokers, and sometimes to organizations you've never heard of. The business model of most free apps and services is to collect as much data as possible about you and monetize it. Understanding this is the first step to protecting yourself.</div>
+        </div>
+      </div>
+
+      <!-- Section 2: App Permissions -->
+      <div class="fade-in">
+        <h2>App Permissions: The First Line of Defense</h2>
+        <p>Your phone has a built-in defense system that most people ignore: the permissions screen. Every time an app asks to access your camera, microphone, contacts, or location, your phone is giving you a choice. The problem is that most people tap "Allow" without thinking — often because they're in a hurry to use the app.</p>
+        <p>Here's the rule: <strong>an app should only have access to what it needs to do its job.</strong> A weather app needs your general location, but it doesn't need your contacts. A calculator doesn't need your camera. A flashlight app doesn't need your microphone. If an app is asking for permissions that don't make sense, that's a red flag.</p>
+
+        <h3>How to Audit Your Permissions Right Now</h3>
+        <p><strong>On iPhone:</strong> Go to Settings → Privacy & Security. You'll see a list of permission categories: Location Services, Contacts, Calendars, Photos, Microphone, Camera, and more. Tap each category to see which apps have access. Revoke anything that doesn't make sense.</p>
+        <p><strong>On Android:</strong> Go to Settings → Privacy → Permission Manager. You'll see the same kind of breakdown. Tap each permission type and review which apps have been granted access. Change anything from "Allow all the time" to "Allow only while using the app" or "Don't allow."</p>
+
+        <div class="tip-box">
+          <div class="tip-box__label">Quick Wins</div>
+          <div class="tip-box__content">Start with <strong>Location</strong> and <strong>Microphone</strong> — these are the two most sensitive permissions. Set location to "While Using" instead of "Always" for apps that legitimately need it (like maps). Deny it entirely for apps that don't. For your microphone, deny access to every app that isn't a phone, video, or voice recording tool. You can always re-enable a permission if an app truly needs it.</div>
+        </div>
+      </div>
+
+      <!-- Section 3: Browser Privacy -->
+      <div class="fade-in">
+        <h2>Browser Privacy</h2>
+        <p>Your web browser is one of the most powerful surveillance tools on your device — and it works against you by default. Every search, every website, every click is tracked, logged, and often shared with advertisers. The good news: a few simple changes can dramatically reduce this.</p>
+
+        <h3>Use a Privacy-Respecting Browser</h3>
+        <p>Not all browsers are created equal. Google Chrome is the most popular browser in the world, but it's also built by the world's largest advertising company. Consider switching to:</p>
+        <ul>
+          <li><strong>Firefox.</strong> Made by the nonprofit Mozilla Foundation. Open source, strong default privacy settings, and a long track record of putting users first. Available on every platform.</li>
+          <li><strong>Brave.</strong> Built on the same engine as Chrome (so websites look and work the same), but blocks ads and trackers by default. Very fast and privacy-focused.</li>
+        </ul>
+
+        <h3>Install an Ad Blocker</h3>
+        <p>Online ads do more than annoy you — they track you across the internet using invisible code called "trackers." Installing an ad blocker stops most of this tracking. The gold standard is <strong>uBlock Origin</strong>. It's free, open source, trusted by millions of people, and works on Firefox, Chrome, and Edge. Just search "uBlock Origin" in your browser's extension store and click install. That's it — no configuration needed.</p>
+
+        <h3>Simple Browser Habits</h3>
+        <ul>
+          <li><strong>Use private/incognito mode</strong> for sensitive searches (health questions, financial information, anything you wouldn't want in your browsing history). Note: incognito mode doesn't make you invisible online — your internet provider and employer can still see what you visit. It just prevents your browser from saving the history locally.</li>
+          <li><strong>Clear your cookies periodically.</strong> Cookies are small files websites store on your computer to remember you. Some are useful (keeping you logged in), but many are used to track you. Clear them every few weeks.</li>
+          <li><strong>Disable third-party cookies.</strong> These are cookies set by companies other than the website you're visiting — they exist purely for tracking. All major browsers now let you block them in settings.</li>
+          <li><strong>Consider using a separate browser for banking and sensitive sites.</strong> Use one browser (like Firefox) for everyday browsing, and a different one (like Brave) exclusively for banking, health portals, and email. This prevents tracking cookies from your everyday browsing from being associated with your most sensitive accounts.</li>
+        </ul>
+      </div>
+
+      <!-- Section 4: Social Media Privacy Settings -->
+      <div class="fade-in">
+        <h2>Social Media Privacy Settings</h2>
+        <p>Social media platforms are designed to maximize sharing — which means every default setting is configured to expose as much of your information as possible. When you create an account on Facebook, Instagram, TikTok, or X, your profile, your posts, your friends list, and your activity are usually public by default. Changing these settings takes just a few minutes but makes a significant difference.</p>
+
+        <h3>Key Settings to Change on Every Platform</h3>
+        <ul>
+          <li><strong>Limit who can see your posts.</strong> Change your default audience from "Public" or "Everyone" to "Friends Only" (or the equivalent). Public posts can be viewed by anyone in the world, including people who might use that information against you.</li>
+          <li><strong>Disable location tagging.</strong> Many platforms automatically tag your posts with your current location. Turn this off. You don't want the world knowing you're on vacation (your house is empty), at a specific restaurant, or at your home address.</li>
+          <li><strong>Turn off facial recognition.</strong> Some platforms can automatically identify you in photos others upload. Disable this feature wherever it's offered — it erodes your ability to control where your face appears online.</li>
+          <li><strong>Limit ad personalization.</strong> Every major platform has an "Ad Preferences" or "Ad Settings" section. Go there and turn off as many personalization options as possible. This limits (but doesn't eliminate) how much your activity is used to target ads to you.</li>
+          <li><strong>Disable contact syncing.</strong> Platforms ask to "find friends" by uploading your phone contacts. Once uploaded, those contacts are stored on their servers permanently. Don't allow this.</li>
+          <li><strong>Review third-party app access.</strong> Over the years, you've probably authorized various apps and games to access your social media accounts. Go to your settings and revoke access for anything you no longer use or don't recognize.</li>
+        </ul>
+
+        <div class="threat-panel">
+          <div class="threat-panel__bar">
+            <span class="threat-panel__dot"></span>
+            <span class="threat-panel__dot"></span>
+            <span class="threat-panel__dot"></span>
+            <span class="threat-panel__label">social-media-risks.log</span>
+          </div>
+          <div class="threat-panel__body">
+            <div class="threat-line threat-line--high"><span class="threat-tag">[HIGH]</span> Publicly visible vacation posts signal empty homes to burglars</div>
+            <div class="threat-line threat-line--high"><span class="threat-tag">[HIGH]</span> Stalkers use location-tagged posts to track targets in real time</div>
+            <div class="threat-line threat-line--med"><span class="threat-tag">[MED]</span> Employers review social media before hiring decisions</div>
+            <div class="threat-line threat-line--med"><span class="threat-tag">[MED]</span> Scammers use posted personal details to guess security questions</div>
+            <div class="threat-line threat-line--low"><span class="threat-tag">[LOW]</span> Old posts with forgotten context can damage reputations years later</div>
+            <div class="threat-line">&nbsp;</div>
+            <div class="threat-line threat-status"><span class="threat-tag threat-tag--ok">[INFO]</span> Before posting, ask: would I be comfortable if a stranger read this?</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 5: Data Brokers -->
+      <div class="fade-in">
+        <h2>Data Brokers and How to Opt Out</h2>
+        <p>There is an entire industry built on collecting and selling your personal information — and most people don't know it exists. Companies called <strong>data brokers</strong> compile profiles on virtually every adult in the country. These profiles can include your full name, home address, phone number, email, age, relatives' names, estimated income, political affiliation, purchasing habits, and more.</p>
+        <p>Anyone can search for you on sites like Spokeo, WhitePages, BeenVerified, Intelius, and PeopleFinder. For a few dollars, they can pull up a detailed report. Scammers, stalkers, telemarketers, and identity thieves all use these services.</p>
+
+        <h3>How to Remove Yourself</h3>
+        <p>Each data broker has its own opt-out process (they're legally required to offer one, though they make it deliberately tedious). The general process is:</p>
+        <ol>
+          <li>Search for yourself on the data broker's website to find your listing.</li>
+          <li>Find their opt-out or removal page (usually buried in the site footer or privacy policy).</li>
+          <li>Submit a removal request with your information.</li>
+          <li>Wait for confirmation — some remove you in days, others take weeks.</li>
+          <li>Check back periodically — some brokers re-add your data from public records.</li>
+        </ol>
+
+        <h3>Major Data Brokers to Opt Out Of</h3>
+        <ul>
+          <li>Spokeo (spokeo.com/optout)</li>
+          <li>WhitePages (whitepages.com/suppression-requests)</li>
+          <li>BeenVerified (beenverified.com/faq/opt-out)</li>
+          <li>Intelius (intelius.com/opt-out)</li>
+          <li>PeopleFinder (peoplefinder.com/optout)</li>
+        </ul>
+        <p>If this feels overwhelming, paid services like <strong>DeleteMe</strong> (joindeleteme.com) will handle the opt-out process across dozens of brokers for you. They typically charge around $100-$130 per year and send you regular reports showing what they've removed.</p>
+        <p>The FTC (Federal Trade Commission) maintains consumer protection resources at <strong>consumer.ftc.gov</strong> including guidance on data privacy and identity theft prevention.</p>
+
+        <div class="tip-box">
+          <div class="tip-box__label">The Reality Check</div>
+          <div class="tip-box__content">You will never fully disappear from the internet. New data is constantly being generated about you from public records, social media, and commercial transactions. Opting out of data brokers is not a one-time task — it's ongoing maintenance. But doing it once, and repeating it every 6-12 months, dramatically reduces your exposure. Even removing yourself from the top 5 brokers eliminates the vast majority of casual searches.</div>
+        </div>
+      </div>
+
+      <!-- Section 6: VPNs -->
+      <div class="fade-in">
+        <h2>VPNs: When and Why</h2>
+        <p>A <strong>VPN</strong> (Virtual Private Network) is a tool that creates an encrypted tunnel between your device and the internet. When you use a VPN, your internet traffic is routed through a server run by the VPN provider before reaching its destination. This does two things:</p>
+        <ul>
+          <li><strong>Encrypts your traffic.</strong> Anyone on the same network as you (like the coffee shop WiFi) can't see what websites you're visiting or intercept your data.</li>
+          <li><strong>Hides your IP address.</strong> Websites see the VPN server's IP address instead of yours, making it harder to track your physical location.</li>
+        </ul>
+
+        <h3>When You Should Use a VPN</h3>
+        <ul>
+          <li><strong>On public WiFi.</strong> Coffee shops, airports, hotels, libraries — any shared network where strangers could be watching traffic. This is the single most important use case for a VPN.</li>
+          <li><strong>When you want to prevent your ISP from tracking your browsing.</strong> Your internet service provider (Comcast, AT&T, Verizon, etc.) can see every website you visit. In the US, ISPs are legally allowed to sell your browsing data. A VPN prevents them from seeing your activity.</li>
+          <li><strong>When accessing sensitive information on an untrusted network.</strong> If you need to check your bank account or access work systems while traveling, a VPN adds an important layer of protection.</li>
+        </ul>
+
+        <h3>When You Don't Need a VPN</h3>
+        <p>At home, for basic browsing on your own secure WiFi network, a VPN isn't strictly necessary. Most websites already use HTTPS encryption (look for the padlock icon in your browser). A VPN doesn't protect you from phishing, malware, or giving away your password. It's not a silver bullet — it's one tool in your toolkit.</p>
+
+        <h3>The Free VPN Trap</h3>
+        <p>There are hundreds of free VPN apps in the app stores. Most of them are worse than using no VPN at all. Why? Running a VPN service costs money — servers, bandwidth, infrastructure. If a VPN is free, they're making money some other way: selling your browsing data, injecting ads, or even installing malware. This completely defeats the purpose of using a VPN for privacy.</p>
+
+        <h3>Trustworthy VPN Options</h3>
+        <ul>
+          <li><strong>ProtonVPN (Free tier).</strong> Made by the same team that created ProtonMail. Based in Switzerland with strong privacy laws. The free tier has no data caps and no ads. This is the best free VPN option available.</li>
+          <li><strong>Mullvad (~$5/month).</strong> Based in Sweden. Accepts anonymous payment. No account required — they assign you a random number. Widely regarded as the most privacy-focused VPN available.</li>
+          <li><strong>NordVPN (~$4-5/month).</strong> One of the most well-known commercial VPNs. Good performance, large server network, and regular independent security audits.</li>
+        </ul>
+      </div>
+
+      <!-- Action Checklist -->
+      <div class="fade-in">
+        <div class="action-checklist">
+          <h2 class="action-checklist__title">What to Do Right Now</h2>
+          <ol>
+            <li><strong>Audit your phone's app permissions.</strong> Open Settings → Privacy on your phone and review every permission category. Revoke anything that doesn't make sense. Start with Location and Microphone.</li>
+            <li><strong>Install uBlock Origin on your browser.</strong> Go to your browser's extension store, search for "uBlock Origin," and click install. It works immediately — no setup required.</li>
+            <li><strong>Set your social media accounts to Friends Only.</strong> Open each platform's privacy settings and change your default post audience to the most restrictive option available.</li>
+            <li><strong>Check haveibeenpwned.com.</strong> Enter your email address to see if it has appeared in any known data breaches. If it has, change those passwords immediately.</li>
+            <li><strong>Opt out of one data broker today.</strong> Start with Spokeo — go to spokeo.com/optout, find your listing, and submit a removal request. One down, then work through the rest over the coming weeks.</li>
+            <li><strong>Switch your default browser to Firefox or Brave.</strong> Download it, set it as your default, import your bookmarks, and start browsing with better privacy defaults from day one.</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Module Navigation -->
+      <nav class="module-nav fade-in" aria-label="Module navigation">
+        <a href="device-safety.html">← Module 04: Device Safety</a>
+        <a href="social-engineering.html">Module 06: Social Engineering →</a>
+      </nav>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__left">
+        <a href="../index.html" class="footer__logo" aria-label="Cyber for Everyone — Home">
+          <svg class="footer__logo-mark" viewBox="0 0 32 36" fill="none" aria-hidden="true">
+            <path d="M16 2L29 7.5V19C29 25.5 23.5 31 16 34C8.5 31 3 25.5 3 19V7.5L16 2Z" stroke="currentColor" stroke-width="1.2"/>
+            <circle cx="16" cy="18" r="2.5" stroke="currentColor" stroke-width="1" fill="none"/>
+            <circle cx="16" cy="18" r="0.8" fill="currentColor"/>
+          </svg>
+          <span class="footer__logo-text">Cyber for Everyone</span>
+        </a>
+        <p class="footer__tagline">Free cybersecurity education for every community.</p>
+      </div>
+      <div class="footer__right">
+        <div class="footer__copy">&copy; <span id="year"></span> Cyber for Everyone. All rights reserved.</div>
+        <div class="footer__links">
+          <a href="mailto:cyberforeveryone@pm.me">Contact</a>
+          <a href="../index.html#curriculum">Curriculum</a>
+          <a href="../index.html#get-involved">Volunteer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme toggle
+    (function () {
+      const t = document.querySelector('[data-theme-toggle]');
+      const r = document.documentElement;
+      let d = r.getAttribute('data-theme') || 'dark';
+
+      function setIcon() {
+        if (!t) return;
+        t.innerHTML = d === 'dark'
+          ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+          : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+        t.setAttribute('aria-label', 'Switch to ' + (d === 'dark' ? 'light' : 'dark') + ' mode');
+      }
+
+      setIcon();
+      t && t.addEventListener('click', () => {
+        d = d === 'dark' ? 'light' : 'dark';
+        r.setAttribute('data-theme', d);
+        setIcon();
+      });
+    })();
+
+    // Mobile nav
+    (function () {
+      const btn = document.getElementById('mobile-toggle');
+      const nav = document.getElementById('main-nav');
+      btn && btn.addEventListener('click', () => {
+        const open = nav.classList.toggle('active');
+        btn.setAttribute('aria-expanded', open);
+      });
+      nav && nav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          nav.classList.remove('active');
+          btn && btn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+
+    // Scroll fade-in
+    (function () {
+      const els = document.querySelectorAll('.fade-in');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(el => el.classList.add('visible'));
+        return;
+      }
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(el => obs.observe(el));
+    })();
+
+    // Header scroll state
+    (function () {
+      const header = document.getElementById('header');
+      window.addEventListener('scroll', () => {
+        header.classList.toggle('header--scrolled', window.scrollY > 20);
+      }, { passive: true });
+    })();
+  </script>
+
+</body>
+</html>
