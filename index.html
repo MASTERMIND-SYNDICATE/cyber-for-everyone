@@ -268,8 +268,11 @@
       </div>
 
       <div class="contact-grid fade-in">
-        <form class="contact-form" name="contact" method="POST" data-netlify="true" novalidate>
-          <input type="hidden" name="form-name" value="contact">
+        <form class="contact-form" action="https://formsubmit.co/cyberforeveryone@pm.me" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="New message from Cyber for Everyone website">
+          <input type="hidden" name="_captcha" value="true">
+          <input type="hidden" name="_next" value="https://nonprofit.mastermindsyndicate.tech#contact">
+          <input type="hidden" name="_template" value="table">
           <div class="form-group">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name">
